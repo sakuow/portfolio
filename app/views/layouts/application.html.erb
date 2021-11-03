@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Marks</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container">
+          <%= link_to "ロゴ", 
+        </div>
+      </div>
+      <% if user_signed_in? %>
+    </header>
+    <%= yield %>
+  </body>
+</html>

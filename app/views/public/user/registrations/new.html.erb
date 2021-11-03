@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+      <h2 class="index">Sign up</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "public/user/shared/error_messages", resource: resource %>
+
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td>名前</td>
+              <td><%= f.text_field :name, placeholder: "マーク君", autofocus: true %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= f.text_field :email, placeholder: "marks@mail" %></td>
+            </tr>
+            <tr>
+              <td>プロフィール画像</td>
+              <td><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></td>
+            </tr>
+            <tr>
+              <td>パスワード</td>
+              <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+            </tr>
+          </tbody>
+        </table>
+
+      <% end %>
+      <h5 class="link">
+        アカウントをお持ちの方は
+        <%= link_to "こちら", new_user_session_path %>からログインしてください。
+      </h3>
+    </div>
+  </div>
+</div>
+
+<style>
+  .index {
+    margin-bottom: 50px;
+  }
+
+  .link {
+    margin: 50px 0;
+  }
+</style>
