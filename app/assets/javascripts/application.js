@@ -19,5 +19,4 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery
-//= require underscore
 //= require gmaps/google
