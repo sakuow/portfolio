@@ -1,0 +1,14 @@
+<dic class="container">
+  <h3>人気投稿一覧</h3>
+  <% @articles.each do |article| %>
+  <div class="row">
+    <div class="col col-2">
+      <%= attachment_image_tag article.images, :file, :fill, 100, 100, format: 'jpeg' %>
+      <p><%= article.title %></p>
+      <p><%= article.body %></p>
+      <p><%= article.created_at.strftime('%Y/%m/%d') %></p>
+    </div>
+  </div>
+  <% end %>
+</dic>
+

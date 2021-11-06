@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_060737) do
+ActiveRecord::Schema.define(version: 2021_11_06_064805) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2021_11_03_060737) do
 
   create_table "articles", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "tag_id"
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
@@ -54,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_11_03_060737) do
     t.integer "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "article_id"
+    t.string "file_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -63,10 +64,17 @@ ActiveRecord::Schema.define(version: 2021_11_03_060737) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tagnames", force: :cascade do |t|
     t.string "tag_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "article_id"
+    t.integer "tagname_id"
   end
 
   create_table "users", force: :cascade do |t|
