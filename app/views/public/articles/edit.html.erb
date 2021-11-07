@@ -1,0 +1,18 @@
+<h3>投稿内容編集ページ</h3>
+<div class="container">
+  <div class="row">
+    <%= form_with model: @article do |f| %>
+      <%= f.label :投稿タイトル %>
+      <%= f.text_field :title %><br />
+      <%= f.label :投稿本文 %>
+      <%= f.text_area :body %><br />
+      <%= f.label :投稿画像 %>
+      <%= f.attachment_field :images_files, multiple: true %><br />
+      <%#= f.fields_for :images, @article.images.build do |g| %>
+        <%#= g.label :都道府県名 %>
+        <%#= g.text_field :prefecture %>
+      <%# end %>
+      <%= f.submit "投稿", class:"btn btn-success" %>
+    <% end %>
+  </div>
+</div>

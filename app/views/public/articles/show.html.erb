@@ -1,21 +1,69 @@
 <div class="container">
   <h3>投稿詳細情報</h3>
-  <div class="row">
-    <% @article.images.each do |images| %>
-      <label>都道府県名</label>
-      <%= images.prefecture %>
-      <%= attachment_image_tag images, :file, :fill, 100, 100, format: 'jpeg' %>
+  <div class="center">
+  <% @article.images.each do |images| %>
+      <!--<label>都道府県名</label>-->
+      <%#= images.prefecture %>
+      <p><%= attachment_image_tag images, :file, :fill, 100, 100, format: 'jpeg' %></p>
     <% end %>
-    
-    <label>投稿タイトル</label>
-    <%= @article.title %>
-    <label>投稿本文</label>
-    <%= @article.body %>
-    <%= @article.created_at.strftime('%Y/%m/%d') %>
   </div>
-  <div class="row">
-    <%= link_to user_path(@article.user.id) do  %>
-    <%= attachment_image_tag @article.user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
-    <% end %>
+    <div class="row">
+    <div class="col-md-6">
+      <%= link_to @article.user.name, user_path(@article.user.id)  %>
+      <%= link_to user_path(@article.user.id) do %>
+        <%= attachment_image_tag @article.user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
+      <% end %>
+
+      <p>
+        <label>投稿タイトル</label>
+        <%= @article.title %>
+      </p>
+      <p>
+      <label>投稿本文</label>
+      <%= @article.body %>
+      </p>
+      <p>
+      <%= @article.created_at.strftime('%Y/%m/%d') %>
+      </p>
+      <% if @article.user == current_user %>
+      <% else %>
+      <% if @article.favorited_by?(current_user) %>
+        <p>
+          <%= link_to article_favorites_path(@article), method: :delete do %>
+            ♥<%= @article.favorites.count %>mark
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to article_favorites_path(@article), method: :post do %>
+            ♡<%= @article.favorites.count %>mark
+          <% end %>
+        </p>
+        <% end %>
+        <% end %>
+      <% if @article.user == current_user %>
+        <p><%= link_to "投稿編集", edit_article_path(@article.id) %></p>
+        <p><%= link_to "投稿を削除する", article_path(@article.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <p>コメント件数:<%= @article.comments.count %></p>
+      <% @article.comments.each do |comment| %>
+      <p>
+        <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
+        <%= comment.user.name %>
+        <%= comment.comment %><%= comment.created_at.strftime('%Y/%m/%d') %>
+        <% if comment.user == current_user %>
+          <%= link_to  "コメントを削除", article_comment_path(comment.article, comment), method: :delete %>
+        <% end %>
+      </p>
+      <% end %>
+
+      <%= form_with(model:[@article, @comment], local:true) do |f| %>
+        <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
+        <%= f.submit '送信する' %>
+      <% end %>
+    </div>
   </div>
 </div>
