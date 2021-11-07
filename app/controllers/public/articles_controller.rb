@@ -41,7 +41,7 @@ class Public::ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, images_attributes: [:file, :prefecture, :latitude, :longitude])
+    params.require(:article).permit(:title, :body, images_files: [])
   end
 
 end

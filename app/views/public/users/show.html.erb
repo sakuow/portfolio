@@ -1,0 +1,8 @@
+<h3>マイページ</h3>
+<%= @user.name %>
+<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format:'jpeg' %>
+<%= @user.email %>
+<%= @user.introduction %>
+<% if @user == current_user %>
+<%= link_to "ユーザー情報編集", edit_user_path(@user.id) %>
+<% end %>

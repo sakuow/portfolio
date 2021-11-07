@@ -1,21 +1,21 @@
 <div class="container">
   <h3>投稿詳細情報</h3>
   <div class="row">
+    <% @article.images.each do |images| %>
+      <label>都道府県名</label>
+      <%= images.prefecture %>
+      <%= attachment_image_tag images, :file, :fill, 100, 100, format: 'jpeg' %>
+    <% end %>
+    
     <label>投稿タイトル</label>
     <%= @article.title %>
     <label>投稿本文</label>
     <%= @article.body %>
-    <% @article.images.each do |images| %>
-    <label>都道府県名</label>
-    <%= images.prefecture %>
-    <label>投稿画像</label>
-    <%= attachment_image_tag images, :file, :fill, 100, 100, format: 'jpeg' %>
-    <% end %>
     <%= @article.created_at.strftime('%Y/%m/%d') %>
   </div>
   <div class="row">
-    <%= link_to user_path(current_user.id) do  %>
-    <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
+    <%= link_to user_path(@article.user.id) do  %>
+    <%= attachment_image_tag @article.user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
     <% end %>
   </div>
 </div>
