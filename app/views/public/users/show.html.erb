@@ -41,7 +41,9 @@
       </tr>
     </tbody>
   </table>
+
 <% else %>
+
   <h3><%= @user.name %>さんの詳細</h3>
   <p><%= render 'public/relationships/button', user: @user %></p>
     <table class="table table-bordered mb-5">
@@ -62,7 +64,7 @@
         <td><%= @user.name %></td>
         <td><%= @user.email %></td>
         <% if @user.introduction == nil %>
-          <td>ユーザー情報編集から自己紹介をしましょう!</td>
+          <td>こんにちは!</td>
         <% else %>
           <td><%= @user.introduction %></td>
         <% end %>

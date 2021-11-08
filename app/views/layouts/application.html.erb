@@ -13,74 +13,9 @@
 
   <body>
     <header>
-      <div class="navbar navbar-expand-lg bg-dark navbar-dark">
-        <div class="container">
-          <!--ユーザーがサインインしている状態-->
-          <% if user_signed_in? %>
-          <%= link_to "ロゴ", articles_path %>
-            <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse show" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto nav">
-                <li>
-                  <%= link_to "タイムライン", articles_timeline_path, class: 'navbar-brand' %>
-                </li>
-                <li>
-                  <%= link_to "新規投稿", new_article_path, class: 'navbar-brand' %>
-                </li>
-                <li>
-                  <%= link_to "my page", user_path(current_user.id), class: 'navbar-brand' %>
-                </li>
-                <li>
-                  <%= link_to "ログアウト", destroy_user_session_path,　method: :delete, class: 'navbar-brand' %>
-                </li>
-              </ul>
-            </div>
-            <!--管理者がサインインしている状態-->
-          <% elsif admin_signed_in? %>
-            <%= link_to "ロゴ", root_path %>
-            <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse show" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto nav">
-                <li>
-                  <%= link_to "タグ一覧・登録", admin_tags_path, class: 'navbar-brand' %>
-                </li>
-                <li>
-                  <%= link_to "ユーザー一覧", admin_users, class: 'navbar-brand' %>
-                </li>
-                <li>
-                  <%= link_to "ログアウト", destroy_admin_session_path, class: 'navbar-brand' %>
-                </li>
-              </ul>
-            </div>
-            <!--どちらもサインインしていない状態-->
-          <% else %>
-          <%= link_to "ロゴ", root_path %>
-            <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse show" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto nav">
-                <li>
-                  <%= link_to "人気投稿一覧", articles_path, class: 'navbar-brand' %>
-                </li>
-                <li>
-                  <%= link_to "新規登録", new_user_registration_path, class: 'navbar-brand' %>
-                </li>
-                <li>
-                  <%= link_to "ログイン", new_user_session_path, class: 'navbar-brand' %>
-                </li>
-                <li>
-                  <%= link_to "marksとは", homes_about_path, class: 'navbar-brand' %>
-                </li>
-              </ul>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <% unless current_page?(root_path) %>
+      <%= render "layouts/header" %>
+      <% end %>
     </header>
     <%= yield %>
   </body>

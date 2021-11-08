@@ -1,3 +1,13 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.img {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-image: image-url("japan2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
