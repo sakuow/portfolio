@@ -1,0 +1,32 @@
+<div class="row">
+  <% articles.each do |article| %>
+  <div class="col col-2">
+      <% article.images.each do |images| %>
+        <%= link_to article_path(article.id) do %>
+          <p><%= attachment_image_tag images, :file, :fill, 100, 100, format: 'jpeg' %></p>
+          <p>撮影地:<%= images.prefecture %></p>
+        <% end %>
+      <% end %>
+      <p>タイトル:<%= article.title %></p>
+      <p>本文:<%= article.body %></p>
+      <p><%= article.created_at.strftime('%Y/%m/%d') %></p>
+      <p>ユーザー名:<%= link_to article.user.name, user_path(article.user.id) %></p>
+      <% if article.favorited_by?(current_user) %>
+        <p>
+          <%= link_to article_favorites_path(article), method: :delete do %>
+            ♥<%= article.favorites.count %>mark
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to article_favorites_path(article), method: :post do %>
+            ♡<%= article.favorites.count %>mark
+          <% end %>
+        </p>
+        <% end %>
+
+      <p><%= link_to "#{article.comments.count}コメント", article_path(article.id) %></p>
+  </div>
+<% end %>
+</div>
+<%= paginate articles %>

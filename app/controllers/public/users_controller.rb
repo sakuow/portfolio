@@ -1,6 +1,14 @@
 class Public::UsersController < ApplicationController
+  before_action :set_user, only: [:favorites]
+
   def show
     @user = User.find(params[:id])
+  end
+
+  def favorites
+    favorites = Favorite.where(user_id: @user.id).pluck(:article_id)
+    article = Article.find(favorites)
+    @articles = Kaminari.paginate_array(article).page(params[:page])
   end
 
   def index
@@ -30,6 +38,10 @@ class Public::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image_id)
+    params.require(:user).permit(:name, :introduction, :profile_image)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

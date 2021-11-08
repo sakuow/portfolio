@@ -1,8 +1,87 @@
-<h3>マイページ</h3>
-<%= @user.name %>
-<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format:'jpeg' %>
-<%= @user.email %>
-<%= @user.introduction %>
 <% if @user == current_user %>
-<%= link_to "ユーザー情報編集", edit_user_path(@user.id) %>
+  <h3>マイページ</h3>
+  <p><%= link_to "ユーザー情報編集", edit_user_path(@user.id) %></p>
+  <table class="table table-bordered mb-5">
+    <thead>
+      <tr>
+        <th></th>
+        <th>ユーザー名</th>
+        <th>メールアドレス</th>
+        <th>自己紹介</th>
+        <th>フォロー</th>
+        <th>フォロワー</th>
+        <th>いいね</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg' %></td>
+        <td><%= @user.name %></td>
+        <td><%= @user.email %></td>
+        <% if @user.introduction == nil %>
+          <td>ユーザー情報編集から自己紹介をしましょう!</td>
+        <% else %>
+          <td><%= @user.introduction %></td>
+        <% end %>
+       <td>
+        <%= link_to user_followings_path(@user.id) do %>
+          <%= @user.followings.count %>
+        <% end %>
+        </td>
+       <td>
+        <%= link_to user_followers_path(@user.id) do %>
+          <%= @user.followers.count %>
+        <% end %>
+        </td>
+       <td>
+         <%= link_to favorites_user_path(@user) do %>
+           <%= @user.favorites.count %>
+         <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% else %>
+  <h3><%= @user.name %>さんの詳細</h3>
+  <p><%= render 'public/relationships/button', user: @user %></p>
+    <table class="table table-bordered mb-5">
+    <thead>
+      <tr>
+        <th></th>
+        <th>ユーザー名</th>
+        <th>メールアドレス</th>
+        <th>自己紹介</th>
+        <th>フォロー</th>
+        <th>フォロワー</th>
+        <th>いいね</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg' %></td>
+        <td><%= @user.name %></td>
+        <td><%= @user.email %></td>
+        <% if @user.introduction == nil %>
+          <td>ユーザー情報編集から自己紹介をしましょう!</td>
+        <% else %>
+          <td><%= @user.introduction %></td>
+        <% end %>
+       <td>
+        <%= link_to user_followings_path(@user.id) do %>
+          <%= @user.followings.count %>
+        <% end %>
+        </td>
+       <td>
+        <%= link_to user_followers_path(@user.id) do %>
+          <%= @user.followers.count %>
+        <% end %>
+        </td>
+       <td>
+         <%= link_to favorites_user_path(@user) do %>
+           <%= @user.favorites.count %>
+         <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

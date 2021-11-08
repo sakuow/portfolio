@@ -10,8 +10,8 @@ helper_method :sort_coumn, :sort_direction
   end
 
   def index
-    @articles = Article.page(params[:page]).reverse_order.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
-    # @articles = Article.page(params[:page]).reverse_order
+    articles = Article.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    @articles = Kaminari.paginate_array(articles).page(params[:page])
   end
 
   def show

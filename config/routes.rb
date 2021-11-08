@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     get 'users/myindex' => 'users#myindex'
     resources :users, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
+      member do
+        get :favorites
+      end
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
