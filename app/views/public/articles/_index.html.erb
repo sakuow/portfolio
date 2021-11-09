@@ -12,23 +12,15 @@
       <p><%= article.created_at.strftime('%Y/%m/%d') %></p>
       <p>ユーザー名:<%= link_to article.user.name, user_path(article.user.id) %></p>
       <% if user_signed_in? %>
-        <% if article.favorited_by?(user) %>
-          <p>
-            <%= link_to article_favorites_path(article), method: :delete do %>
-              ♥<%= article.favorites.count %>mark
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to article_favorites_path(article), method: :post do %>
-              ♡<%= article.favorites.count %>mark
-            <% end %>
-          </p>
-          <% end %>
-          <% else %>
-        <% end %>
+        <span id="favorites_buttons_<%= article.id %>">
+          <%= render 'public/favorites/button', article: article %>
+        </span>
+        <p><%= link_to "#{article.comments.count}コメント", article_path(article.id) %></p>
+      <% else %>
+        いいね数:<%= article.favorites.count %><br />
+        コメント数:<%= article.comments.count %>
+      <% end %>
 
-      <p><%= link_to "#{article.comments.count}コメント", article_path(article.id) %></p>
   </div>
 <% end %>
 </div>
