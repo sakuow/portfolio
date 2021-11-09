@@ -1,16 +1,18 @@
 class Public::CommentsController < ApplicationController
   def create
-    article = Article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
     comment = Comment.new(comment_params)
     comment.user_id = current_user.id
-    comment.article_id = article.id
+    comment.article_id = @article.id
     comment.save
-    redirect_to article_path(article)
+    @new_comment = Comment.new
   end
 
   def destroy
-    Comment.find_by(id: params[:id]).destroy
-    redirect_to article_path(params[:article_id])
+    @article = Article.find(params[:article_id])
+    comment = @article.comments.find(params[:id])
+    comment.destroy
+    @new_comment = Comment.new
   end
 
   private

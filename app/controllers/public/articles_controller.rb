@@ -60,7 +60,7 @@ helper_method :sort_coumn, :sort_direction
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, images_files: [])
+    params.require(:article).permit(:title, :body, images_files: [], tagname_ids: [])
   end
 
 end

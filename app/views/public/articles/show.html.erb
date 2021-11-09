@@ -15,6 +15,7 @@
       <% end %>
       <% if @article.user == current_user %>
       <% else %>
+        <div id="follows_<%= @article.user.id %>">
         <%= render "public/relationships/button", user: @article.user %>
       <% end %>
 
@@ -23,15 +24,23 @@
         <%= @article.title %>
       </p>
       <p>
-      <label>投稿本文</label>
-      <%= @article.body %>
+        <label>投稿本文</label>
+        <%= @article.body %>
+      </p>
+      <p>
+        <% @article.tagnames.each do |tag| %>
+          ・<%= tag.tag_name %>
+        <% end %>
       </p>
       <p>
       <%= @article.created_at.strftime('%Y/%m/%d') %>
       </p>
       <% if @article.user == current_user %>
+        <%= @article.favorites.count %>
       <% else %>
-      <%= render 'public/favorites/button', article: @article %>
+        <span id="favorites_<%= @article.id %>">
+          <%= render 'public/favorites/button', article: @article %>
+        </span>
       <% end %>
       <% if @article.user == current_user %>
         <p><%= link_to "投稿編集", edit_article_path(@article.id) %></p>
@@ -40,8 +49,9 @@
     </div>
 
     <div class="col-md-6">
-    <%= render 'public/comments/index', comments: @article.comments %>
-    <%= render 'public/comments/new', comment: @comment, article: @article %>
+    <div id="comments_<%= @article.id %>">
+      <%= render 'public/comments/new', comment: @comment, article: @article, comments: @article.comments %>
+    </div>
     </div>
   </div>
 </div>

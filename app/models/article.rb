@@ -4,9 +4,9 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy, autosave: true
   accepts_attachments_for :images, attachment: :file
-  # accepts_nested_attributes_for :images
   has_many :favorites, dependent: :destroy
-  has_many :tags
+  has_many :tags, dependent: :destroy
+  has_many :tagnames, through: :tags
 # いいね順の一覧ページ
   has_many :favorited_users, through: :favorites, source: :user
 
