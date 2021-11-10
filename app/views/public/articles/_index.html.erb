@@ -1,6 +1,7 @@
 <div class="row">
   <% articles.each do |article| %>
-  <div class="col col-2">
+
+  <div class="col col-3">
       <% article.images.each do |images| %>
         <%= link_to article_path(article.id) do %>
           <p><%= attachment_image_tag images, :file, :fill, 100, 100, format: 'jpeg' %></p>
@@ -28,8 +29,8 @@
         いいね数:<%= article.favorites.count %><br />
         コメント数:<%= article.comments.count %>
       <% end %>
-
   </div>
-<% end %>
+
+  <% end %>
 </div>
 <%= paginate articles %>

@@ -12,9 +12,14 @@ helper_method :sort_coumn, :sort_direction
   end
 
   def index
-    favorite_articles = Article.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
-    kaminari = Kaminari.paginate_array(favorite_articles).page(params[:page])
-    @articles = params[:tagname_id].present? ? Tagname.find(params[:tagname_id]).posts : kaminari
+    # favorite_articles = Article.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    # @articles = Kaminari.paginate_array(favorite_articles).page(params[:page])
+    # @articles = params[:tagname_id].present? ? Tagname.find(params[:tagname_id]).posts : kaminari
+    if params[:tagname_id] != nil && params[:tagname_id].present?
+      @articles = Article.left_joins(:favorites, :tagnames).select('articles.*, count(favorites.article_id) as count_favorites').where(tagnames: {id: params[:tagname_id]}).group('favorites.article_id').order('count_favorites desc').page(params[:page])
+    else
+      @articles = Article.left_joins(:favorites, :tagnames).select('articles.*, count(favorites.article_id) as count_favorites').group('favorites.article_id').order('count_favorites desc').page(params[:page])
+    end
   end
 
   def show

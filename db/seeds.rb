@@ -19,3 +19,8 @@ Tagname.create([
   { tag_name: '外国'},
   { tag_name: '旅行'},
   ])
+  
+Admin.create!(
+  email: 'a@a',
+  password: 'testtest'
+)
