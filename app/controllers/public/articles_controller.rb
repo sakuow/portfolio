@@ -7,11 +7,14 @@ helper_method :sort_coumn, :sort_direction
   end
 
   def timeline
+    timeline = Article.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc)
+    @articles = Kaminari.paginate_array(timeline).page(params[:page])
   end
 
   def index
-    articles = Article.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
-    @articles = params[:tagname_id].present? ? Tagname.find(params[:tagname_id]).posts : Kaminari.paginate_array(articles).page(params[:page])
+    favorite_articles = Article.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    kaminari = Kaminari.paginate_array(favorite_articles).page(params[:page])
+    @articles = params[:tagname_id].present? ? Tagname.find(params[:tagname_id]).posts : kaminari
   end
 
   def show
