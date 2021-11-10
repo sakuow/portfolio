@@ -1,7 +1,5 @@
 class Public::RelationshipsController < ApplicationController
   def create
-    @article = Article.find(params[:article_id])
-    @user = @article.id
     current_user.follow(params[:user_id])
     redirect_to request.referer
   end

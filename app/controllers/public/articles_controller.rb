@@ -11,7 +11,7 @@ helper_method :sort_coumn, :sort_direction
 
   def index
     articles = Article.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
-    @articles = Kaminari.paginate_array(articles).page(params[:page])
+    @articles = params[:tagname_id].present? ? Tagname.find(params[:tagname_id]).posts : Kaminari.paginate_array(articles).page(params[:page])
   end
 
   def show

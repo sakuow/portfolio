@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+  end
 # ユーザー側
   devise_for :user,skip: [:passwords], controllers: {
     sessions: 'public/user/sessions',
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root 'homes#top'
     get 'homes/about' => 'homes#about'
+    get 'search' => 'search#search'
     get 'users/myindex' => 'users#myindex'
     resources :users, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]

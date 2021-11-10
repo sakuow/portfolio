@@ -6,6 +6,7 @@
       <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="navbar-collapse collapse show" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav">
           <li>
@@ -22,6 +23,17 @@
           </li>
         </ul>
       </div>
+      
+      <div>
+        <% if user_signed_in? %>
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <%= f.text_field 'search[value]', placeholder: '投稿を検索' %>
+            <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical" }) %>
+            <%= f.submit :"検索" %>
+          <% end %>
+        <% end %>
+      </div>
+      
       <!--管理者がサインインしている状態-->
     <% elsif admin_signed_in? %>
       <%= link_to "ロゴ", root_path %>

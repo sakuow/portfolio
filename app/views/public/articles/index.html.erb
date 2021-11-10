@@ -1,5 +1,15 @@
 <div class="container">
   <h3>人気投稿一覧</h3>
+  <%= form_tag articles_path, method: :get, class: "boards_searchForm" do %>
+    <%= select_tag :tag_id,
+    options_from_collection_for_select(Tagname.all, :id, :tag_name, params[:Tagname_id]),
+    {
+      prompt: 'タグで絞り込み検索',
+      onchange: 'submit(this.form);'
+    }
+    %>
+    <% end %>
+    
   <%= render 'public/articles/index', articles: @articles %>
 </div>
 
