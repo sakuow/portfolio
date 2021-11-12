@@ -10,13 +10,23 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-//= require jquery
 //= require gmaps/google
+
+/*global $*/
+  $(".imgs").skippr({
+    transition : 'slide',
+    speed : 1000,
+    arrows : true,
+    autoPlay : true,
+    autoPlayDuration : 3000,
+    hidePrevious : true
+  })

@@ -2,12 +2,15 @@
   <% articles.each do |article| %>
 
   <div class="col col-3">
+    <div id="box">
       <% article.images.each do |images| %>
-        <%= link_to article_path(article.id) do %>
-          <p><%= attachment_image_tag images, :file, :fill, 100, 100, format: 'jpeg' %></p>
-          <p>撮影地:<%= images.prefecture %></p>
-        <% end %>
+        <div class="images">
+          <%= link_to article_path(article.id) do %>
+            <p><%= attachment_image_tag images, :file, :fill, 100, 100, format: 'jpeg' %></p>
+          <% end %>
+        </div>
       <% end %>
+    </div>
       <p>タイトル:<%= article.title %></p>
       <p>本文:<%= article.body %></p>
       <div class="tag">
@@ -34,3 +37,6 @@
   <% end %>
 </div>
 <%= paginate articles %>
+
+<script>
+</script>
