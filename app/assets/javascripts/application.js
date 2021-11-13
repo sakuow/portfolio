@@ -22,11 +22,14 @@
 //= require activestorage
 
 /*global $*/
-  $(".imgs").skippr({
+$(document).on('turbolinks:load', function() {
+  $(".form").skippr({
     transition : 'slide',
     speed : 1000,
-    arrows : true,
+    arrows : false,
     autoPlay : true,
+    childrenElementType : 'div',
     autoPlayDuration : 3000,
     hidePrevious : true
   })
+});

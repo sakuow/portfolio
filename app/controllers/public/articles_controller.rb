@@ -12,13 +12,18 @@ helper_method :sort_coumn, :sort_direction
   end
 
   def index
-    # favorite_articles = Article.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
-    # @articles = Kaminari.paginate_array(favorite_articles).page(params[:page])
-    # @articles = params[:tagname_id].present? ? Tagname.find(params[:tagname_id]).posts : kaminari
+    sql = %|
+      LEFT OUTER JOIN (
+      SELECT count(*) AS favorite_count, favorites.article_id
+      FROM favorites
+      GROUP BY favorites.article_id
+      ) AS favorite_sum
+      ON articles.id = favorite_sum.article_id
+      |
     if params[:tagname_id] != nil && params[:tagname_id].present?
-      @articles = Article.left_joins(:favorites, :tagnames).select('articles.*, count(favorites.article_id) as count_favorites').where(tagnames: {id: params[:tagname_id]}).group('favorites.article_id').order('count_favorites desc').page(params[:page])
+      @articles = Article.joins(sql).joins(:tagnames).where(tagnames: {id: params[:tagname_id]}).order("favorite_sum.favorite_count desc").page(params[:page])
     else
-      @articles = Article.left_joins(:favorites, :tagnames).select('articles.*, count(favorites.article_id) as count_favorites').group('favorites.article_id').order('count_favorites desc').page(params[:page])
+      @articles = Article.joins(sql).order("favorite_sum.favorite_count desc").page(params[:page])
     end
   end
 
@@ -28,6 +33,10 @@ helper_method :sort_coumn, :sort_direction
     # @image = EXIFR::JPEG.new(params[:id])
     # @image.latitude = image.gps.latitude
     # @image.longitude = image.gps.longitude
+  end
+  
+  def map
+    
   end
 
   def edit

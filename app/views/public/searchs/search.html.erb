@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <div class="col-xs-12">
     <% if @model == 'user' %>
       <% if @datas.empty? %>
@@ -7,7 +7,7 @@
         <p>キーワードや条件を変えてお試しください</p>
       <% else %>
         <h2>【ユーザーの検索】 '<%= @content %>'　の検索結果</h2>
-        <%= render 'public/articles/index', articles: @datas %>
+        <%= render 'public/searchs/show', users: @datas %>
       <% end %>
     <% elsif @model == 'article' %>
       <% if @datas.empty? %>

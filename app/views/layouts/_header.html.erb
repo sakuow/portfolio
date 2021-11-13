@@ -23,7 +23,7 @@
           </li>
         </ul>
       </div>
-      
+
       <div>
         <% if user_signed_in? %>
           <%= form_with url:search_path, method: :get, local: true do |f| %>
@@ -34,7 +34,7 @@
           <% end %>
         <% end %>
       </div>
-      
+
       <!--管理者がサインインしている状態-->
     <% elsif admin_signed_in? %>
       <%= link_to "ロゴ", root_path %>

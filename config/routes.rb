@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get 'followers' => 'relationships#followers', as: 'followers'
     end
 
-    get 'articles/:id/maps' => 'articles#maps'
+    get 'map' => 'articles#map'
     get 'articles/timeline' => 'articles#timeline'
     resources :articles, only: [:index, :new, :show, :edit, :create, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
@@ -42,6 +42,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'users' => 'users#index'
-    resources :tags, only: [:index, :edit, :create, :update, :destroy]
+    resources :tagnames, only: [:index, :edit, :create, :update, :destroy]
   end
 end
