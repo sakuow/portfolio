@@ -1,2 +1,1 @@
 $("#follows_<%= @article.user.id %>").html("<%= j(render 'public/relationships/button',user: @user) %>");
-<!-- @articleのインスタンス変数の中身が間違っている可能性(渡すのはarticleのuser_id?)-->

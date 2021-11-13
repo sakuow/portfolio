@@ -11,15 +11,15 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+// jquery_ujsはいらない？
 //= require rails-ujs
-//= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
 //= require gmaps/google
+//= require_tree .
+//= require activestorage
 
 /*global $*/
   $(".imgs").skippr({

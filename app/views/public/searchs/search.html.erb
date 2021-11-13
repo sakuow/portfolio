@@ -1,0 +1,22 @@
+<div class="container">
+  
+  <div class="col-xs-12">
+    <% if @model == 'user' %>
+      <% if @datas.empty? %>
+        <h2>【ユーザーの検索】 '<%= @content %>'　に該当する投稿はありませんでした。</h2>
+        <p>キーワードや条件を変えてお試しください</p>
+      <% else %>
+        <h2>【ユーザーの検索】 '<%= @content %>'　の検索結果</h2>
+        <%= render 'public/articles/index', articles: @datas %>
+      <% end %>
+    <% elsif @model == 'article' %>
+      <% if @datas.empty? %>
+        <h2>【投稿の検索】 '<%= @content %>'　に該当する投稿はありませんでした。</h2>
+        <p>キーワードや条件を変えてお試しください</p>
+      <% else %>
+        <h2>【投稿の検索】 '<%= @content %>'　の検索結果</h2>
+        <%= render 'public/articles/index', articles: @datas %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
