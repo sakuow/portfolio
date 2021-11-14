@@ -4,7 +4,6 @@
 <input type="button" value="Encode" onclick="codeAddress()">
 <div id="display">何かが表示される、、、、！</div>
 
-
 <div id='map'></div>
 
 <style>
@@ -50,5 +49,5 @@ function codeAddress(){
     }
   });
 }
-</script>AIzaSyDaFFMIrMiMSJIAmjuhsQVRVzL5VEnGdkE
-<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_KEY"]}&callback=initMap" async defer></script>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap" async defer></script>
