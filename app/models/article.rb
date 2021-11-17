@@ -9,6 +9,9 @@ class Article < ApplicationRecord
   has_many :tagnames, through: :tags
 # いいね順の一覧ページ
   has_many :favorited_users, through: :favorites, source: :user
+  
+  validates :title, presence: true
+  validates :body, presence: true
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

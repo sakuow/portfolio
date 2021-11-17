@@ -11,6 +11,12 @@ class Public::UsersController < ApplicationController
     @articles = Kaminari.paginate_array(article).page(params[:page])
   end
 
+  def myindex
+    @user = User.find(params[:id])
+    kaminari = @user.articles
+    @articles = Kaminari.paginate_array(kaminari).page(params[:page])
+  end
+
   def edit
     @user = User.find(params[:id])
     if @user == current_user

@@ -1,3 +1,50 @@
 // Place all the styles related to the public/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.userpage {
+  text-align: center;
+}
+
+.profile {
+  width: 40%;
+  margin: 10px auto;
+}
+
+.profileimg {
+  width: 100%;
+  border-radius: 20%;
+  height: 200px;
+}
+
+.usertable {
+  width: 60%;
+  margin: 0 auto;
+  text-align: left;
+  border: 1px solid black;
+  .usertr{
+    border-bottom: 1px solid black;
+    height: 100px;
+  }
+
+  .usertd{
+    border-right: 1px solid black;
+    text-align: center;
+    width: 150px;
+  }
+}
+
+td {
+  padding: 5px;
+}
+
+.edit {
+  width: 80%;
+  text-align: right;
+}
+
+.lnk {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}

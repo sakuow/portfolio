@@ -1,13 +1,15 @@
-<div class="container">
+<div class="container textalign">
   <h3>投稿詳細情報</h3>
   <div class="center">
-  <% @article.images.each do |images| %>
-      <!--<label>都道府県名</label>-->
-      <%#= images.prefecture %>
-      <p><%= attachment_image_tag images, :file, :fill, 100, 100, format: 'jpeg' %></p>
-    <% end %>
+    <div class="form">
+      <% @article.images.each do |images| %>
+        <div class="box", style="background-image: url(<%= attachment_url images, :file, :fill, 400, 400, format: 'jpeg' %>)"></div>
+        <%= attachment_image_tag @perm, :perm_image , class: 'd-block mx-auto cut-img mt-4' %>
+      <% end %>
+    </div>
+    <p><%= link_to "GoogleMapへ", map_path(@article.id) %></p>
   </div>
-  <div class="row">
+  <div class="row testtitle">
     <div class="col-md-6">
       <%= link_to @article.user.name, user_path(@article.user.id)  %>
       <%= link_to user_path(@article.user.id) do %>

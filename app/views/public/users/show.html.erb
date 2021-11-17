@@ -1,93 +1,88 @@
-<div class="container">
-  <div class="col-xs-12">
-    <% if @user == current_user %>
-      <h3>マイページ</h3>
-      <p><%= link_to "ユーザー情報編集", edit_user_path(@user.id) %></p>
-      <table class="table table-bordered mb-5">
-        <thead>
-          <tr>
-            <th>ユーザー名</th>
-            <th>メールアドレス</th>
-            <th>自己紹介</th>
-            <th>フォロー</th>
-            <th>フォロワー</th>
-            <th>いいね</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg' %>
-              <%= @user.name %>
-            </td>
-            <td><%= @user.email %></td>
-            <% if @user.introduction == nil %>
-              <td>ユーザー情報編集から自己紹介をしましょう!</td>
-            <% else %>
-              <td><%= @user.introduction %></td>
-            <% end %>
-           <td>
-            <%= link_to user_followings_path(@user.id) do %>
-              <%= @user.followings.count %>
-            <% end %>
-            </td>
-           <td>
-            <%= link_to user_followers_path(@user.id) do %>
-              <%= @user.followers.count %>
-            <% end %>
-            </td>
-           <td>
-             <%= link_to favorites_user_path(@user) do %>
-               <%= @user.favorites.count %>
-             <% end %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-    <% else %>
-
-      <h3><%= @user.name %>さんの詳細</h3>
-        <table class="table table-bordered mb-5">
-        <thead>
-          <tr>
-            <th>ユーザー名</th>
-            <th>自己紹介</th>
-            <th>フォロー</th>
-            <th>フォロワー</th>
-            <th>いいね</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg' %>
-              <%= @user.name %>
-              <%= render 'public/relationships/button', user: @user %>
-            </td>
-            <% if @user.introduction == nil %>
-              <td>こんにちは!</td>
-            <% else %>
-              <td><%= @user.introduction %></td>
-            <% end %>
-           <td>
-            <%= link_to user_followings_path(@user.id) do %>
-              <%= @user.followings.count %>
-            <% end %>
-            </td>
-           <td>
-            <%= link_to user_followers_path(@user.id) do %>
-              <%= @user.followers.count %>
-            <% end %>
-            </td>
-           <td>
-             <%= link_to favorites_user_path(@user) do %>
-               <%= @user.favorites.count %>
-             <% end %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    <% end %>
+<div class="userpage">
+  <% if @user == current_user %>
+  <h3>マイページ</h3>
+  <div class="profile">
+    <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format:'jpeg', class:'profileimg' %>
   </div>
+
+  <div class="edit">
+    <p><%= link_to "ユーザー情報編集", edit_user_path(@user.id) %></p>
+  </div>
+
+  <div class="lnk">
+    <span>
+      フォロー：
+      <%= link_to user_followings_path(@user.id) do %>
+         <%= @user.followings.count %>
+      <% end %>
+      フォロワー：
+      <%= link_to user_followers_path(@user.id) do %>
+        <%= @user.followers.count %>
+      <% end %>
+      いいねした投稿：
+      <%= link_to favorites_user_path(@user) do %>
+        <%= @user.favorites.count %>
+      <% end %>
+    </span>
+  </div>
+
+  <table class="usertable">
+    <tbody>
+      <tr class="usertr">
+        <td class="usertd">ユーザー名</td>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr class="usertr">
+        <td class="usertd">メールアドレス</td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr class="usertr">
+        <td class="usertd">自己紹介</td>
+        <% if @user.introduction == nil %>
+          <td>ユーザー情報編集から自己紹介をしましょう!</td>
+        <% else %>
+          <td><%= @user.introduction %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to "投稿一覧へ", myindex_path(@user.id) %>
+<% else %>
+
+  <h3><%= @user.name %>さんの詳細</h3>
+    <table class="usertable">
+      <tr>
+        <td>
+          <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg' %>
+          <%= @user.name %>
+          <%= render 'public/relationships/button', user: @user %>
+        </td>
+        <% if @user.introduction == nil %>
+          <td>こんにちは!</td>
+        <% else %>
+          <td><%= @user.introduction %></td>
+        <% end %>
+       <td>
+        <%= link_to user_followings_path(@user.id) do %>
+          <%= @user.followings.count %>
+        <% end %>
+        </td>
+       <td>
+        <%= link_to user_followers_path(@user.id) do %>
+          <%= @user.followers.count %>
+        <% end %>
+        </td>
+       <td>
+         <%= link_to favorites_user_path(@user) do %>
+           <%= @user.favorites.count %>
+         <% end %>
+        </td>
+        <td>
+          <%= link_to "投稿一覧へ", myindex_path(@user.id) %>
+        </td>
+      </tr>
+  </table>
+<% end %>
+</div>
+</div>
 </div>

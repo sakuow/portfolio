@@ -30,13 +30,13 @@ helper_method :sort_coumn, :sort_direction
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
-    # @image = EXIFR::JPEG.new(params[:id])
-    # @image.latitude = image.gps.latitude
-    # @image.longitude = image.gps.longitude
   end
-  
+
   def map
-    
+    # @article = Article.find(params[:id])
+    # images = EXIFR::JPEG.new(@article.images)
+    # @image.latitude = images.gps.latitude
+    # @image.longitude = images.gps.longitude
   end
 
   def edit

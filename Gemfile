@@ -77,3 +77,4 @@ group :production do
 end
 
 gem 'jquery-rails'
+gem 'rails-i18n', '~> 5.1'

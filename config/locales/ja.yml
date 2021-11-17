@@ -6,3 +6,25 @@ ja:
       previous: "&lsaquo; 1つ前"
       next: "1つ次 &rsaquo;"
       truncate: "..."
+
+#   ja:
+# devise:
+#   sessions:
+#     user:
+#       signed_out: ログアウトしました!
+#       signed_in: ログインしました!
+#   passwords:
+#     user:
+#       send_instructions: メールをご確認してください
+# errors:
+#   messages:
+#     not_saved: メッセージの送信に失敗しました！
+# flash:
+#   new: 作成しました！
+#   updated: 更新しました！
+#   failed: 失敗しました！
+#   destroy: 削除しました！
+#   login: ログインしました！
+#   logout: ログアウトしました！
+#   limited_access: 不正な侵入です
+# activerecord:

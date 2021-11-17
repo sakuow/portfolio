@@ -2,10 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.textalign {
+  text-align: center;
+}
+
 div.center {
+  height: 400px;
   width: 100%;
   margin: 50px auto;
   text_align: center;
+
+  .skippr {
+    width: 60%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+}
+
+.articlebody {
+  width: 20%;
 }
 
 .ctn {
@@ -13,6 +30,55 @@ div.center {
 }
 
 .box {
-  height: 100px;
-  width: 100px;
+  height: 400px;
+  width: 400px;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 56.25%;
+}
+
+.map-canvas {
+    position: absolute;
+    top: 0;
+    right: 40%;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+.map-route {
+    overflow: scroll;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 54px;
+    left: 60%;
+    margin: 0;
+    padding: 10px;
+}
+
+.map-search {
+    position: absolute;
+    height: 54px;
+    right: 0;
+    bottom: 0;
+    left: 60%;
+    margin: 0;
+    padding: 10px;
+}
+
+.row {
+  margin-top: 30px;
+}
+
+.break {
+  word-break: break-all;
+}
+
+.testtitle {
+  display: block;
 }

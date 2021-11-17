@@ -1,16 +1,15 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col">
-        <h2 class="index">Log in</h2>
-        <h5 class="index">会員の方はこちらから</h5>
+        <h2 class="index">ログイン画面</h2>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
-            <%= f.label :email %><br />
+            <%= f.label :メールアドレス %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </div>
 
           <div class="field">
-            <%= f.label :password %><br />
+            <%= f.label :パスワード %><br />
             <%= f.password_field :password, autocomplete: "current-password" %>
           </div>
 
@@ -22,11 +21,13 @@
           <% end %>
 
           <div class="actions">
-            <%= f.submit "Log in" %>
+            <%= f.submit "ログイン", class: "btn btn-success rounded-pill" %>
           </div>
         <% end %>
-        <h5>アカウントをお持ちでない方は</h5>
-        <%= link_to "こちら", new_user_registration_path %>から作成してください。
+        <h5 class="link">
+          アカウントをお持ちでない方は
+          <%= link_to "こちら", new_user_registration_path %>から作成してください。
+        </h5>
     </div>
   </div>
 </div>
@@ -34,5 +35,9 @@
 <style>
   .index {
     margin-bottom: 50px;
+  }
+
+    .link {
+    margin: 50px 0;
   }
 </style>

@@ -1,7 +1,7 @@
 <div class="row">
   <% articles.each do |article| %>
 
-  <div class="col col-3">
+  <div class="col-3">
     <div class="ctn">
       <div class="form">
         <% article.images.each do |images| %>
@@ -11,18 +11,27 @@
     </div>
 
     <div class="article">
-      <p>タイトル:<%= article.title %></p>
-      <p>本文:<%= article.body %></p>
-      <div class="tag">
-        タグ
+      <%= link_to article_path(article.id) do %>
+        <p>タイトル:<%= article.title %></p>
+      <% end %>
+      <details open>
+        <span class="articlebody">
+          <summary>本文</summary>
+        </span>
+        <p>:<%= article.body %></p>
+      </details>
+
+      <details open>
+        <summary>タグ(こちらをクリック)</summary>
         <p>
           <% article.tagnames.each do |tag| %>
             ・<%= tag.tag_name %>
           <% end %>
         </p>
-      </div>
+      </details>
+
       <p><%= article.created_at.strftime('%Y/%m/%d') %></p>
-      <p>ユーザー名:<%= link_to article.user.name, user_path(article.user.id) %></p>
+      <p>投稿者:<%= link_to article.user.name, user_path(article.user.id) %></p>
       <% if user_signed_in? %>
         <span id="favorites_<%= article.id %>">
           <%= render 'public/favorites/button', article: article %>

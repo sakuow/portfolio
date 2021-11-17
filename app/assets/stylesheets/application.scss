@@ -18,6 +18,12 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/

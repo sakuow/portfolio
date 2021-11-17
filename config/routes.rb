@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     get 'homes/about' => 'homes#about'
     get 'search' => 'searchs#search'
-    get 'users/myindex' => 'users#myindex'
+    get 'user/:id/myindex' => 'users#myindex', as: 'myindex'
     resources :users, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       member do
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get 'followers' => 'relationships#followers', as: 'followers'
     end
 
-    get 'map' => 'articles#map'
+    get 'map' => 'articles#map', as: 'map'
     get 'articles/timeline' => 'articles#timeline'
     resources :articles, only: [:index, :new, :show, :edit, :create, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
