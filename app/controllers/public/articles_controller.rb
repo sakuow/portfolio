@@ -1,9 +1,9 @@
 class Public::ArticlesController < ApplicationController
 
 helper_method :sort_coumn, :sort_direction
+
   def new
     @article = Article.new
-    @images = Image.new
   end
 
   def timeline

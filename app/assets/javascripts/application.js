@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
     transition : 'slide',
     speed : 1000,
     arrows : false,
-    autoPlay : true,
+    autoPlay : false,
     childrenElementType : 'div',
     autoPlayDuration : 3000,
     hidePrevious : true
