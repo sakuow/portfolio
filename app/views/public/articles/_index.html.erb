@@ -1,6 +1,6 @@
-<div class="row">
-  <% articles.each do |article| %>
+<div class="row article_indexbox">
 
+  <% articles.each do |article| %>
   <div class="col-3">
     <div class="ctn">
       <div class="form">
@@ -10,28 +10,49 @@
       </div>
     </div>
 
-    <div class="article">
-      <%= link_to article_path(article.id) do %>
-        <p>タイトル:<%= article.title %></p>
-      <% end %>
-      <details open>
-        <summary>本文</summary>
-        <p>:<%= article.body %></p>
-      </details>
+      <p>
+        投稿日時: <%= article.created_at.strftime('%Y/%m/%d') %>
+      </p>
 
-      <details open>
-        <summary>タグ(クリック)</summary>
-        <p>
-          <% article.tagnames.each do |tag| %>
-            ・<%= tag.tag_name %>
-          <% end %>
-        </p>
-      </details>
+    <table class="table bordered">
+      <tr>
+        <%= link_to user_path(article.user.id) do %>
+          <%= attachment_image_tag article.user, :profile_image, :fill, 50, 50, format: 'jpeg', class:'articleprofileimg' %>
+        <% end %>
+        <%= link_to article.user.name, user_path(article.user.id) %>
+      </tr>
+      <tr>
+        <td>件名</td>
+        <td>
+          <%= link_to article.title, article_path(article.id) %>
+        </td>
+      </tr>
+      <tr>
+        <td>本文</td>
+        <td>
+          <%= article.body %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <details open>
+            <summary>タグ(クリック)</summary>
+            <p>
+              <% article.tagnames.each do |tag| %>
+                ・<%= tag.tag_name %>
+              <% end %>
+            </p>
+          </details>
+        </td>
+        </tr>
+      <tr>
+        <td><%= article.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+    </table>
 
-      <p><%= article.created_at.strftime('%Y/%m/%d') %></p>
-      <p>投稿者:<%= link_to article.user.name, user_path(article.user.id) %></p>
+    <div class="articlefavorite">
       <% if article.user == current_user %>
-        <p><%= article.favorites.count %>marks</p>
+        <p><%= article.favorites.count %> marks</p>
       <% else %>
         <span id="favorites_<%= article.id %>">
           <%= render 'public/favorites/button', article: article %>
@@ -39,8 +60,8 @@
       <% end %>
       <p><%= link_to "#{article.comments.count}コメント", article_path(article.id) %></p>
     </div>
-  </div>
 
+  </div>
   <% end %>
 </div>
 <%= paginate articles %>

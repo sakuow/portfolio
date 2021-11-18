@@ -50,14 +50,16 @@
 }
 
 // _index
-.ctn {
-  height: 150px;
+.article_indexbox {
+  .ctn {
+    height: 150px;
+    }
 
-  .article {
-    border: 2px solid lightgreen;
-    border-radius: 5%;
-    padding: 10px;
+  .articleprofileimg {
+    border-radius: 50%;
+    margin-bottom: 15px;
   }
+
 }
 
 .map-container {

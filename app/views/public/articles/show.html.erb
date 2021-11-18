@@ -25,7 +25,7 @@
 
       <div class="articlefavorite">
         <% if @article.user == current_user %>
-          <%= @article.favorites.count %> marks
+          <p><%= @article.favorites.count %> marks</p>
         <% else %>
           <span id="favorites_<%= @article.id %>">
             <%= render 'public/favorites/button', article: @article %>
@@ -35,7 +35,6 @@
           投稿日時: <%= @article.created_at.strftime('%Y/%m/%d') %>
         </p>
       </div>
-
 
       <table class="table bordered">
         <tr>
