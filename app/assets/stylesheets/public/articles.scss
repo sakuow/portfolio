@@ -2,41 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// show
 .textalign {
   text-align: center;
-}
+  padding-top: 10px;
 
-div.center {
-  height: 400px;
-  width: 100%;
-  margin: 50px auto;
-  text_align: center;
-
-  .skippr {
-    width: 60%;
+  div.center {
     height: 400px;
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
+    width: 100%;
+    margin: 50px auto;
+    text_align: center;
+
+    p .articleright {
+      text-align: right;
+    }
+
+    .skippr {
+      width: 60%;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .aritcleimage {
+      height: 400px;
+      width: 400px;
+    }
+  }
+
+  .articlebox {
+
+    .articlebutton {
+    margin: 10px auto;
+    }
+
+    .articleprofileimg {
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .articlefavorite {
+      margin: 10px auto;
+      text-align: right;
+    }
   }
 }
 
-.articlebody {
-  width: 20%;
-}
-
+// _index
 .ctn {
   height: 150px;
+
+  .article {
+    border: 2px solid lightgreen;
+    border-radius: 5%;
+    padding: 10px;
+  }
 }
 
-.aritcleimage {
-  height: 400px;
-  width: 400px;
-}
-// .skippr>div {
-//     background-repeat: no-repeat !important;
-//   background-size: unset !important;
-// }
 .map-container {
     position: relative;
     width: 100%;
@@ -74,14 +97,11 @@ div.center {
     padding: 10px;
 }
 
-.row {
-  margin-top: 30px;
-}
-
 .break {
   word-break: break-all;
 }
 
-.testtitle {
-  display: block;
-}
+
+
+
+

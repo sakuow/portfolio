@@ -1,3 +1,18 @@
 // Place all the styles related to the public/comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.articlecomment {
+  border-left: 1px dotted black;
+  margin-top: 30px;
+  .newcomment {
+    margin: 20px auto;
+  }
+
+  .commentindex {
+    .articlecomments {
+      margin: 20px;
+      text-align: left;
+    }
+  }
+}

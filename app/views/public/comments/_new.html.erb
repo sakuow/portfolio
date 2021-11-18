@@ -1,18 +1,25 @@
-<p>コメント件数:<%= comments.count %></p>
-<% comments.each do |comment| %>
-  <p>
-    <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
-    <%= comment.user.name %> <%= comment.created_at.strftime('%Y/%m/%d') %>
-  </p>
-  <p>
-    <%= comment.comment %>
-    <% if comment.user == current_user %>
-      <%= link_to  "コメントを削除", article_comment_path(comment.article, comment), method: :delete, remote: true %>
-    <% end %>
-  </p>
-<% end %>
+<div class="articlecomment">
+  <h5>コメント欄（件数:<%= comments.count %>）</h5>
 
-<%= form_with model:[article, comment], url: article_comments_path(article.id) do |f| %>
-  <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
-  <%= f.submit '送信する' %>
-<% end %>
+  <div class="newcomment">
+    <%= form_with model:[article, comment], url: article_comments_path(article.id) do |f| %>
+      <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %><br />
+      <%= f.submit '送信する' %>
+    <% end %>
+  </div>
+
+  <div class="commentindex">
+    <% comments.each do |comment| %>
+      <div class="articlecomments">
+        <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, format: 'jpeg', class:"articleprofileimg commentleft" %>
+        <%= comment.user.name %> : <%= comment.comment %><br />
+        <%= comment.created_at.strftime('%Y/%m/%d') %>
+        <% if comment.user == current_user %>
+          <%= link_to  "コメントを削除する", article_comment_path(comment.article, comment), method: :delete, remote: true %>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+
+</div>

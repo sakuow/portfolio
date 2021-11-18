@@ -6,46 +6,61 @@
         <div class="articleimage", style="background-image: url(<%= attachment_url images, :file, :fill, 400, 400, format: 'jpeg' %>)"></div>
       <% end %>
     </div>
-    <p><%= link_to "GoogleMapへ", map_path(@article.id) %></p>
+    <p class="articleright"><%= link_to "GoogleMapへ", map_path(@article.id) %></p>
   </div>
-  <div class="row testtitle">
+  <div class="row articlebox">
     <div class="col-md-6">
       <%= link_to @article.user.name, user_path(@article.user.id)  %>
-      <%= link_to user_path(@article.user.id) do %>
-        <%= attachment_image_tag @article.user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
-      <% end %>
+      <p>
+        <%= link_to user_path(@article.user.id) do %>
+          <%= attachment_image_tag @article.user, :profile_image, :fill, 100, 100, format: 'jpeg', class:'articleprofileimg' %>
+        <% end %>
+      </p>
       <% if @article.user == current_user %>
       <% else %>
-        <div id="follows_<%= @article.user.id %>">
+        <div class="articlebutton" id="follows_<%= @article.user.id %>">
           <%= render "public/relationships/button", user: @article.user %>
         </div>
       <% end %>
-      <p>
-        <label>投稿タイトル</label>
-        <%= @article.title %>
-      </p>
-      <p>
-        <label>投稿本文</label>
-        <%= @article.body %>
-      </p>
-      <p>
-        <% @article.tagnames.each do |tag| %>
-          ・<%= tag.tag_name %>
+
+      <div class="articlefavorite">
+        <% if @article.user == current_user %>
+          <%= @article.favorites.count %> marks
+        <% else %>
+          <span id="favorites_<%= @article.id %>">
+            <%= render 'public/favorites/button', article: @article %>
+          </span>
         <% end %>
-      </p>
-      <p>
-        <%= @article.created_at.strftime('%Y/%m/%d') %>
-      </p>
-      <% if @article.user == current_user %>
-        <%= @article.favorites.count %>marks
-      <% else %>
-        <span id="favorites_<%= @article.id %>">
-          <%= render 'public/favorites/button', article: @article %>
-        </span>
-      <% end %>
-      <% if @article.user == current_user %>
-        <p><%= link_to "投稿編集", edit_article_path(@article.id) %></p>
-        <p><%= link_to "投稿を削除する", article_path(@article.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+        <p>
+          投稿日時: <%= @article.created_at.strftime('%Y/%m/%d') %>
+        </p>
+      </div>
+
+
+      <table class="table bordered">
+        <tr>
+          <td>件名</td>
+          <td><%= @article.title %></td>
+        </tr>
+        <tr>
+          <td>本文</td>
+          <td><%= @article.body %></td>
+        </tr>
+        <tr>
+          <td>タグ名</td>
+          <td>
+            <% @article.tagnames.each do |tag| %>
+              🏷<%= tag.tag_name %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+
+        <% if @article.user == current_user %>
+        <p>
+          <%= link_to "投稿編集", edit_article_path(@article.id) %>  /
+          <%= link_to "投稿を削除する", article_path(@article.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        </p>
       <% end %>
     </div>
 
