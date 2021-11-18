@@ -11,10 +11,10 @@
     </div>
 
       <p>
-        投稿日時: <%= article.created_at.strftime('%Y/%m/%d') %>
+        投稿日時: <%= l article.created_at %>
       </p>
 
-    <table class="table bordered">
+    <table class="table">
       <tr>
         <%= link_to user_path(article.user.id) do %>
           <%= attachment_image_tag article.user, :profile_image, :fill, 50, 50, format: 'jpeg', class:'articleprofileimg' %>
@@ -22,14 +22,14 @@
         <%= link_to article.user.name, user_path(article.user.id) %>
       </tr>
       <tr>
-        <td>件名</td>
         <td>
+          件名<br />
           <%= link_to article.title, article_path(article.id) %>
         </td>
       </tr>
       <tr>
-        <td>本文</td>
         <td>
+          本文<br />
           <%= article.body %>
         </td>
       </tr>
@@ -45,9 +45,6 @@
           </details>
         </td>
         </tr>
-      <tr>
-        <td><%= article.created_at.strftime('%Y/%m/%d') %></td>
-      </tr>
     </table>
 
     <div class="articlefavorite">
@@ -60,7 +57,6 @@
       <% end %>
       <p><%= link_to "#{article.comments.count}コメント", article_path(article.id) %></p>
     </div>
-
   </div>
   <% end %>
 </div>

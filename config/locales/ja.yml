@@ -7,6 +7,11 @@ ja:
       next: "1つ次 &rsaquo;"
       truncate: "..."
 
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      
 #   ja:
 # devise:
 #   sessions:
