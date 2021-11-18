@@ -18,8 +18,13 @@ Tagname.create([
   { tag_name: '花火'},
   { tag_name: '外国'},
   { tag_name: '旅行'},
+  { tag_name: '川' },
+  { tag_name: '街並み'},
+  { tag_name: '人混み'},
+  { tag_name: '散歩'},
+  { tag_name: '祭り'}
   ])
-  
+
 Admin.create!(
   email: 'a@a',
   password: 'testtest'

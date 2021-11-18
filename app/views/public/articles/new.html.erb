@@ -1,5 +1,12 @@
 <h3>新規投稿ページ</h3>
 
+<% if @article.errors.any? %>
+<%= @article.errors.count %>件のエラーが発生。
+<% @article.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
+<% end %>
+
 <div class="container">
   <div class="row">
     <%= render 'public/articles/form', article: @article %>

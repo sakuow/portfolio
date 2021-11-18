@@ -18,6 +18,9 @@
       <%= render "layouts/header" %>
       <% end %>
     </header>
+    <% flash.each do |key, value| %>
+      <p><%= content_tag(:div, value, class: "#{key}") %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -24,6 +24,18 @@
   box-sizing: border-box;
 }
 
+.notice {
+  color: green;
+  text-align: left;
+  font-size: x-large;
+}
+
+.alert {
+  color: red;
+  text-align: left;
+  font-size: x-large;
+}
+
 .pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
