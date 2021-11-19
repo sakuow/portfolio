@@ -4,47 +4,42 @@
 
 .userpage {
   text-align: center;
-}
 
-.profile {
-  width: 40%;
-  margin: 10px auto;
-}
-
-.profileimg {
-  width: 100%;
-  border-radius: 20%;
-  height: 400px;
-}
-
-.usertable {
-  width: 60%;
-  margin: 0 auto;
-  text-align: left;
-  border: 1px solid black;
-  .usertr{
-    border-bottom: 1px solid black;
-    height: 100px;
+  .profile {
+    width: 40%;
+    margin: 10px auto;
   }
 
-  .usertd{
-    border-right: 1px solid black;
+  .profile-img {
+    width: 100%;
+    border-radius: 50%;
+    height: 400px;
+  }
+
+  .user-edit {
+  }
+
+  .lnk {
+    width: 100%;
     text-align: center;
-    width: 150px;
+    margin-bottom: 10px;
+  }
+
+  .user-profile {
+    width: 80%;
+    text-align: center;
+
+    .usertr{
+      border-bottom: 1px solid black;
+      height: 100px;
+    }
+
+    .usertd{
+      border-right: 1px solid black;
+      text-align: center;
+      width: 150px;
+    }
   }
 }
 
-td {
-  padding: 5px;
-}
 
-.edit {
-  width: 80%;
-  text-align: right;
-}
-
-.lnk {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 10px;
-}

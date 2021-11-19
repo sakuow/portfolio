@@ -1,4 +1,8 @@
-<h3>新規投稿ページ</h3>
+<div class="article-flex">
+  <div class="article-heading">
+    <h3>新規投稿欄</h3>
+  </div>
+</div>
 
 <% if @article.errors.any? %>
 <%= @article.errors.count %>件のエラーが発生。
@@ -7,8 +11,4 @@
 <% end %>
 <% end %>
 
-<div class="container">
-  <div class="row">
-    <%= render 'public/articles/form', article: @article %>
-  </div>
-</div>
+<%= render 'public/articles/form', article: @article %>

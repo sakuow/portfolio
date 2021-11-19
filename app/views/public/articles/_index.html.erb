@@ -1,4 +1,4 @@
-<div class="row article-indexbox">
+<div class="row article-template">
 
   <% articles.each do |article| %>
   <div class="col-3 article-col">
@@ -47,16 +47,14 @@
         </tr>
     </table>
 
-    <div class="articlefavorite">
-      <% if article.user == current_user %>
-        <p><%= article.favorites.count %> marks</p>
-      <% else %>
-        <span id="favorites_<%= article.id %>">
-          <%= render 'public/favorites/button', article: article %>
-        </span>
-      <% end %>
-      <p><%= link_to "#{article.comments.count}コメント", article_path(article.id) %></p>
-    </div>
+    <% if article.user == current_user %>
+      <%= article.favorites.count %> marks<br />
+    <% else %>
+      <span id="favorites_<%= article.id %>">
+        <%= render 'public/favorites/button', article: article %><br />
+      </span>
+    <% end %>
+    <%= link_to "#{article.comments.count}コメント", article_path(article.id) %>
   </div>
   <% end %>
 </div>

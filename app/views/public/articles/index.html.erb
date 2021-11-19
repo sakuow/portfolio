@@ -1,22 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8 article-heading">
-      <h3>人気投稿一覧</h3>
-    </div>
-    <div class="col-4">
-      <%= form_tag articles_path, method: :get, class: "boards_searchForm" do %>
-        <%= select_tag :tagname_id,
-        options_from_collection_for_select(Tagname.all, :id, :tag_name, params[:Tagname_id]),
-        {
-          prompt: 'タグで絞り込み検索',
-          onchange: 'submit(this.form);'
-        }
-        %>
-      <% end %>
-    </div>
+<div class="article-flex">
+  <div class="article-heading">
+    <h3>人気投稿一覧</h3>
   </div>
+  <div class="article-search">
+    <%= form_tag articles_path, method: :get, class: "boards_searchForm" do %>
+      <%= select_tag :tagname_id,
+      options_from_collection_for_select(Tagname.all, :id, :tag_name, params[:Tagname_id]),
+      {
+        prompt: 'タグで絞り込み検索',
+        onchange: 'submit(this.form);'
+      }
+      %>
+    <% end %>
+  </div>
+</div>
 
+<div class="container">
   <%= render 'public/articles/index', articles: @articles %>
-
 </div>
 

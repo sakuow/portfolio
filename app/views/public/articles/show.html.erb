@@ -1,5 +1,6 @@
 <div class="container textalign">
   <h3>投稿詳細情報</h3>
+
   <div class="center">
     <div class="form">
       <% @article.images.each do |images| %>
@@ -8,8 +9,9 @@
     </div>
     <p class="article-right"><%= link_to "GoogleMapへ", map_path(@article.id) %></p>
   </div>
+
   <div class="row article-box">
-    <div class="col-md-6">
+    <div class="col-md-6 article-show-border">
       <%= link_to @article.user.name, user_path(@article.user.id)  %>
       <p>
         <%= link_to user_path(@article.user.id) do %>
@@ -32,22 +34,26 @@
           </span>
         <% end %>
         <p>
-          投稿日時: <%= @article.created_at.strftime('%Y/%m/%d') %>
+          投稿日時: <%= l @article.created_at %>
         </p>
       </div>
 
-      <table class="table bordered">
+      <table class="table">
         <tr>
-          <td>件名</td>
-          <td><%= @article.title %></td>
-        </tr>
-        <tr>
-          <td>本文</td>
-          <td><%= @article.body %></td>
-        </tr>
-        <tr>
-          <td>タグ名</td>
           <td>
+            件名<br />
+            <%= @article.title %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            本文<br />
+            <%= @article.body %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            タグ名<br />
             <% @article.tagnames.each do |tag| %>
               🏷<%= tag.tag_name %>
             <% end %>

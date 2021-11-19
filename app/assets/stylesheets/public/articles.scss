@@ -2,9 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// index
+
 .article-heading {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 255, 0, 0.5);
+  text-align: center;
+  margin: 15px auto;
+}
+
+// index
+.article-flex {
+  display: table;
+  margin: 15px auto;
 }
 
 // show
@@ -38,6 +46,10 @@
 
   .article-box {
 
+    .article-show-border {
+      border-right: 1px dotted black;
+    }
+
     .article-button {
     margin: 10px auto;
     }
@@ -51,11 +63,16 @@
       margin: 10px auto;
       text-align: right;
     }
+
+    tr {
+      border-top: 1px solid #dee2e6;
+      border-bottom:  1px solid #dee2e6;
+    }
   }
 }
 
 // _index
-.article-indexbox {
+.article-template {
   .ctn {
     height: 150px;
     }
@@ -64,7 +81,43 @@
     border-radius: 50%;
     margin-bottom: 15px;
   }
+
 }
+
+// _form
+.article-form {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+
+  .form-field {
+    height: 65px;
+  }
+
+  .form-text {
+    width: 600px;
+    height: 100px;
+  }
+
+  .article-form-right {
+    width: 30%;
+  }
+
+  .article-form-left {
+    text-align: left;
+    border-left: 1px solid #dee2e6;
+    width: 65%;
+
+    .article-tag {
+      margin: 5px;
+    }
+  }
+
+}
+
+
+
+
 
 .map-container {
     position: relative;
@@ -92,7 +145,6 @@
     margin: 0;
     padding: 10px;
 }
-
 .map-search {
     position: absolute;
     height: 54px;
@@ -102,7 +154,6 @@
     margin: 0;
     padding: 10px;
 }
-
 .break {
   word-break: break-all;
 }

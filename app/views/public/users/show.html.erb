@@ -1,11 +1,12 @@
 <div class="userpage">
   <% if @user == current_user %>
+
   <h3>マイページ</h3>
   <div class="profile">
-    <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format:'jpeg', class:'profileimg' %>
+    <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format:'jpeg', class:'profile-img' %>
   </div>
 
-  <div class="edit">
+  <div class="user-edit">
     <p><%= link_to "ユーザー情報編集", edit_user_path(@user.id) %></p>
     <p><%= link_to "ユーザーの投稿一覧へ", myindex_path(@user.id) %></p>
   </div>
@@ -27,33 +28,40 @@
     </span>
   </div>
 
-  <table class="usertable">
-    <tbody>
-      <tr class="usertr">
-        <td class="usertd">ユーザー名</td>
-        <td><%= @user.name %></td>
-      </tr>
-      <tr class="usertr">
-        <td class="usertd">メールアドレス</td>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr class="usertr">
-        <td class="usertd">自己紹介</td>
-        <% if @user.introduction == nil %>
-          <td>ユーザー情報編集から自己紹介をしましょう!</td>
-        <% else %>
-          <td><%= @user.introduction %></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
+  <div class="user-profile">
+    <table class="table">
+      <tbody>
+        <tr class="usertr">
+          <td class="usertd">ユーザー名</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr class="usertr">
+          <td class="usertd">メールアドレス</td>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr class="usertr">
+          <td class="usertd">自己紹介</td>
+          <% if @user.introduction == nil %>
+            <td>ユーザー情報編集から自己紹介をしましょう!</td>
+          <% else %>
+            <td><%= @user.introduction %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <% else %>
+  <% else %><!--上がマイページ、下が他ユーザー詳細 -->
 
   <h3><%= @user.name %>さんの詳細</h3>
   <div class="profile">
-    <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format:'jpeg', class:'profileimg' %>
+    <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format:'jpeg', class:'profile-img' %>
   </div>
+
+  <div class="user-edit">
+    <p><%= link_to "ユーザーの投稿一覧へ", myindex_path(@user.id) %></p>
+  </div>
+
 
   <div class="lnk">
     <span>
@@ -61,33 +69,36 @@
       <%= link_to user_followings_path(@user.id) do %>
          <%= @user.followings.count %>
       <% end %>
-      フォロワー：
+      / フォロワー：
       <%= link_to user_followers_path(@user.id) do %>
         <%= @user.followers.count %>
       <% end %>
-      いいねした投稿：
+      / いいねした投稿：
       <%= link_to favorites_user_path(@user) do %>
         <%= @user.favorites.count %>
       <% end %>
     </span>
   </div>
 
-  <table class="usertable">
-    <tbody>
-      <tr class="usertr">
-        <td class="usertd">ユーザー名</td>
-        <td><%= @user.name %></td>
-      </tr>
-      <tr class="usertr">
-        <td class="usertd">自己紹介</td>
-        <% if @user.introduction == nil %>
-          <td>こんにちは！</td>
-        <% else %>
-          <td><%= @user.introduction %></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
-  <%= link_to "ユーザーの投稿一覧へ", myindex_path(@user.id) %>
+
+  <div class="user-profile">
+    <table class="table">
+      <tbody>
+        <tr class="usertr">
+          <td class="usertd">ユーザー名</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr class="usertr">
+          <td class="usertd">自己紹介</td>
+          <% if @user.introduction == nil %>
+            <td>こんにちは！</td>
+          <% else %>
+            <td><%= @user.introduction %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <% end %>
 </div>

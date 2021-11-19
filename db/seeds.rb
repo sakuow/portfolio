@@ -22,7 +22,11 @@ Tagname.create([
   { tag_name: '街並み'},
   { tag_name: '人混み'},
   { tag_name: '散歩'},
-  { tag_name: '祭り'}
+  { tag_name: '祭り'},
+  { tag_name: '食べ歩き'},
+  { tag_name: '商店街'},
+  { tag_name: '路地'},
+  { tag_name: '岬'},
   ])
 
 Admin.create!(
