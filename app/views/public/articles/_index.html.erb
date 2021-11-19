@@ -10,9 +10,19 @@
       </div>
     </div>
 
-      <p>
-        投稿日時: <%= l article.created_at %>
-      </p>
+    <p>
+      投稿日時: <%= l article.created_at, format: :short %>
+    </p>
+    <p>
+      <% if article.user == current_user %>
+        <%= article.favorites.count %> marks /
+      <% else %>
+        <span id="favorites_<%= article.id %>">
+          <%= render 'public/favorites/button', article: article %> /
+        </span>
+      <% end %>
+      <%= link_to "#{article.comments.count}コメント", article_path(article.id) %>
+    </p>
 
     <table class="table">
       <tr>
@@ -46,15 +56,6 @@
         </td>
         </tr>
     </table>
-
-    <% if article.user == current_user %>
-      <%= article.favorites.count %> marks<br />
-    <% else %>
-      <span id="favorites_<%= article.id %>">
-        <%= render 'public/favorites/button', article: article %><br />
-      </span>
-    <% end %>
-    <%= link_to "#{article.comments.count}コメント", article_path(article.id) %>
   </div>
   <% end %>
 </div>

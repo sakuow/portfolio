@@ -27,15 +27,15 @@
 
   .user-profile {
     width: 80%;
-    text-align: center;
+    margin: 0px auto;
 
     .usertr{
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #dee2e6;
       height: 100px;
     }
 
     .usertd{
-      border-right: 1px solid black;
+      border-right: 1px solid #dee2e6;
       text-align: center;
       width: 150px;
     }
