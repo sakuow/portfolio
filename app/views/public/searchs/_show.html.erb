@@ -14,7 +14,9 @@
           <td>
             <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format:'jpeg' %>
             <%= user.name %>
-            <%= render 'public/relationships/button', user: user %>
+            <% unless user == current_user %>
+              <%= render 'public/relationships/button', user: user %>
+            <% end %>
           </td>
           <% if user.introduction == nil %>
             <td>こんにちは!</td>

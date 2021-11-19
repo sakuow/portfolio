@@ -1,7 +1,7 @@
-<div class="row article_indexbox">
+<div class="row article-indexbox">
 
   <% articles.each do |article| %>
-  <div class="col-3">
+  <div class="col-3 article-col">
     <div class="ctn">
       <div class="form">
         <% article.images.each do |images| %>
@@ -17,7 +17,7 @@
     <table class="table">
       <tr>
         <%= link_to user_path(article.user.id) do %>
-          <%= attachment_image_tag article.user, :profile_image, :fill, 50, 50, format: 'jpeg', class:'articleprofileimg' %>
+          <%= attachment_image_tag article.user, :profile_image, :fill, 50, 50, format: 'jpeg', class:'article-profile-img' %>
         <% end %>
         <%= link_to article.user.name, user_path(article.user.id) %>
       </tr>
