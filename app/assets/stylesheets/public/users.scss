@@ -2,7 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.userpage {
+
+.user-flex {
+  display: table;
+  margin: 15px auto;
+
+  .user-heading {
+    background-color: rgba(0, 255, 0, 0.5);
+    text-align: center;
+    margin: 15px auto;
+  }
+}
+
+// showページ
+.user-page {
   text-align: center;
 
   .profile {
@@ -17,6 +30,8 @@
   }
 
   .user-edit {
+    margin: 15px 0;
+    font-size: larger;
   }
 
   .lnk {
@@ -38,6 +53,7 @@
       border-right: 1px solid #dee2e6;
       text-align: center;
       width: 150px;
+      padding-top: 40px;
     }
   }
 }

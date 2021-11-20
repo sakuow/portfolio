@@ -15,6 +15,8 @@ class User < ApplicationRecord
   # いいね順の一覧ページ
   has_many :favorited_articles, through: :favorites, source: :article
 
+  validates :name, presence: true
+
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

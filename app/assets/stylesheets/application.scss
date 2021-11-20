@@ -27,27 +27,33 @@
 .notice {
   color: green;
   text-align: left;
-  font-size: x-large;
+  font-size: large;
 }
 
 .alert {
   color: red;
-  text-align: left;
+  text-align: center;
   font-size: x-large;
 }
 
-.pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+.header_header {
+  .header-icon {
+    text-align: center;
+  }
 }
 
-/* 表示しているページ番号のデザイン */
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
 .pagination>.active>a {
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
+  background: #93c9ff;
+  border-radius: 15px;
 }
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
+  border-radius: 15px;
 }

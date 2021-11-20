@@ -14,14 +14,19 @@
       投稿日時: <%= l article.created_at, format: :short %>
     </p>
     <p>
-      <% if article.user == current_user %>
-        <%= article.favorites.count %> marks /
+      <% if user_signed_in? %>
+        <% if article.user == current_user %>
+          <%= article.favorites.count %> marks
+        <% else %>
+          <span id="favorites_<%= article.id %>">
+            <%= render 'public/favorites/button', article: article %>
+          </span>
+        <% end %>
+        <span>　/　</span>
+        <%= link_to "#{article.comments.count}コメント", article_path(article.id) %>
       <% else %>
-        <span id="favorites_<%= article.id %>">
-          <%= render 'public/favorites/button', article: article %> /
-        </span>
+          <%= article.favorites.count %> marks  /  <%= article.comments.count %>
       <% end %>
-      <%= link_to "#{article.comments.count}コメント", article_path(article.id) %>
     </p>
 
     <table class="table">

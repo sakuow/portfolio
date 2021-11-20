@@ -1,32 +1,49 @@
-<div class="navbar navbar-expand-lg bg-dark navbar-dark">
+<div class="navbar navbar-expand-lg bg-dark navbar-dark header_header">
   <div class="container">
 
     <!--ユーザーがサインインしている状態-->
     <% if user_signed_in? %>
-    <%= link_to "ロゴ", articles_path %>
+    <div class="header-logo">
+      <%= link_to articles_path do %>
+        <%= image_tag 'logo.png', size: '80x80' %>
+        <% end %>
+    </div>
       <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="navbar-collapse collapse show" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav">
-          <li>
-            <%= link_to "タイムライン", articles_timeline_path, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to articles_timeline_path, class: 'navbar-brand' do %>
+              <i class="far fa-images"></i><br />
+              タイムライン
+            <% end %>
           </li>
-          <li>
-            <%= link_to "新規投稿", new_article_path, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to new_article_path, class: 'navbar-brand' do %>
+            <i class="fas fa-plus"></i><br />
+              新規投稿
+            <% end %>
           </li>
-          <li>
-            <%= link_to "my page", user_path(current_user.id), class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to user_path(current_user.id), class: 'navbar-brand' do %>
+              <i class="fas fa-user"></i><br />
+              MyPage
+            <% end %>
           </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path,　method: :delete, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to destroy_user_session_path,　method: :delete, class: 'navbar-brand' do %>
+              <i class="fas fa-sign-out-alt"></i><br />
+              ログアウト
+            <% end %>
           </li>
         </ul>
       </div>
 
-      <div>
+      <div class="header-search">
         <%= form_with url:search_path, method: :get, local: true do |f| %>
+          <i class="fas fa-search"></i>
           <%= f.text_field 'content', placeholder: '投稿 / ユーザー名 を検索' %><br />
           <%= f.select 'model', options_for_select({ "投稿" => "article", "ユーザー名" => "user" }) %>
           <%= f.select 'method', options_for_select({ "部分一致" => "partical", "完全一致" => "perfect" }) %>
@@ -36,42 +53,72 @@
 
       <!--管理者がサインインしている状態-->
     <% elsif admin_signed_in? %>
-      <%= link_to "ロゴ", root_path %>
+      <div class="header-logo">
+        <%= link_to articles_path do %>
+          <%= image_tag 'logo.png', size: '80x80' %>
+        <% end %>
+      </div>
+
       <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse show" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav">
-          <li>
-            <%= link_to "タグ一覧・登録", admin_tags_path, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to admin_tags_path, class: 'navbar-brand' do %>
+              タグ登録・一覧
+            <% end %>
           </li>
-          <li>
-            <%= link_to "ユーザー一覧", admin_users, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to admin_users, class: 'navbar-brand' do %>
+              <i class="fas fa-address-book"></i><br />
+              ユーザー一覧
+            <% end %>
           </li>
-          <li>
-            <%= link_to "ログアウト", destroy_admin_session_path, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to destroy_admin_session_path, class: 'navbar-brand' do %>
+              <i class="fas fa-sign-out-alt"></i><br />
+              ログアウト
+            <% end %>
           </li>
         </ul>
       </div>
       <!--どちらもサインインしていない状態-->
     <% else %>
-    <%= link_to "ロゴ", root_path %>
+      <div class="header-logo">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png', size: '80x80' %>
+        <% end %>
+      </div>
+
       <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse show" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav">
-          <li>
-            <%= link_to "人気投稿一覧", articles_path, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to articles_path, class: 'navbar-brand' do %>
+              <i class="far fa-images"></i><br />
+              人気投稿一覧
+            <% end %>
           </li>
-          <li>
-            <%= link_to "新規登録", new_user_registration_path, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to new_user_registration_path, class: 'navbar-brand' do %>
+            <i class="fas fa-user-plus"></i><br />
+            新規登録
+            <% end %>
           </li>
-          <li>
-            <%= link_to "ログイン", new_user_session_path, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to new_user_session_path, class: 'navbar-brand' do %>
+              <i class="fas fa-sign-in-alt"></i><br />
+              ログイン
+            <% end %>
           </li>
-          <li>
-            <%= link_to "marksとは", homes_about_path, class: 'navbar-brand' %>
+          <li class="header-icon">
+            <%= link_to homes_about_path, class: 'navbar-brand' do %>
+            <i class="fas fa-map-marker-alt"></i><br />
+            marksとは
+            <% end %>
           </li>
         </ul>
       </div>

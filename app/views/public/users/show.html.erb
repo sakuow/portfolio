@@ -1,7 +1,12 @@
-<div class="userpage">
+<div class="user-page">
   <% if @user == current_user %>
 
-  <h3>マイページ</h3>
+  <div class="user-flex">
+    <div class="user-heading">
+      <h3>マイページ</h3>
+    </div>
+  </div>
+
   <div class="profile">
     <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format:'jpeg', class:'profile-img' %>
   </div>
@@ -17,10 +22,12 @@
       <%= link_to user_followings_path(@user.id) do %>
          <%= @user.followings.count %>
       <% end %>
+      <span>　/　</span>
       フォロワー：
       <%= link_to user_followers_path(@user.id) do %>
         <%= @user.followers.count %>
       <% end %>
+      <span>　/　</span>
       いいねした投稿：
       <%= link_to favorites_user_path(@user) do %>
         <%= @user.favorites.count %>
@@ -42,7 +49,7 @@
         <tr class="usertr">
           <td class="usertd">自己紹介</td>
           <% if @user.introduction == nil %>
-            <td>ユーザー情報編集から自己紹介をしましょう!</td>
+            <td><%= link_to "ユーザー情報編集", edit_user_path(@user.id) %> から自己紹介をしましょう!</td>
           <% else %>
             <td><%= @user.introduction %></td>
           <% end %>
@@ -53,7 +60,12 @@
 
   <% else %><!--上がマイページ、下が他ユーザー詳細 -->
 
-  <h3><%= @user.name %>さんの詳細</h3>
+  <div class="user-flex">
+    <div class="user-heading">
+      <h3><%= @user.name %>さんの詳細</h3>
+    </div>
+  </div>
+
   <div class="profile">
     <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format:'jpeg', class:'profile-img' %>
   </div>
@@ -69,11 +81,13 @@
       <%= link_to user_followings_path(@user.id) do %>
          <%= @user.followings.count %>
       <% end %>
-      / フォロワー：
+      <span>　/　</span>
+      フォロワー：
       <%= link_to user_followers_path(@user.id) do %>
         <%= @user.followers.count %>
       <% end %>
-      / いいねした投稿：
+      <span>　/　</span>
+      いいねした投稿：
       <%= link_to favorites_user_path(@user) do %>
         <%= @user.favorites.count %>
       <% end %>
@@ -89,7 +103,7 @@
           <td><%= @user.name %></td>
         </tr>
         <tr class="usertr">
-          <td class="usertd">自己紹介</td>
+          <td>自己紹介</td>
           <% if @user.introduction == nil %>
             <td>こんにちは！</td>
           <% else %>
