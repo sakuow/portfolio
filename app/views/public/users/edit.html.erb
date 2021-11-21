@@ -1,4 +1,8 @@
-<h3>ユーザー情報編集</h3>
+<div class="user-flex">
+  <div class="user-heading">
+    <h3>ユーザー情報編集</h3>
+  </div>
+</div>
 
 <% if @user.errors.any? %>
   <%= @user.errors.count %>件のエラーが発生しました。<br />
@@ -7,26 +11,24 @@
   <% end %>
 <% end %>
 
-<%= form_with model: @user, local:true do |f| %>
-  <table class="table table-borderless">
-    <tbody>
-      <tr>
-        <td>名前</td>
-        <td><%= f.text_field :name, placeholder: "mark", autofocus: true %></td>
-      </tr>
-      <tr>
-        <td>自己紹介</td>
-        <td><%= f.text_area :introduction, placeholder: "自己紹介" %></td>
-      </tr>
-      <tr>
-        <td>プロフィール画像</td>
-        <td><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></td>
-      </tr>
-      <tr>
-      <tr>
-        <td></td>
-        <td><%= f.submit "編集", class: "btn btn-success" %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+<div class="user-form">
+  <%= form_with model: @user, local:true do |f| %>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="user-form-right">名前</td>
+          <td class="user-form-left"><%= f.text_field :name, placeholder: "mark", autofocus: true, class:"form-field" %></td>
+        </tr>
+        <tr>
+          <td class="user-form-right">自己紹介</td>
+          <td class="user-form-left"><%= f.text_area :introduction, placeholder: "自己紹介", class:"form-text" %></td>
+        </tr>
+        <tr>
+          <td class="user-form-right">プロフィール画像</td>
+          <td class="user-form-left"><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= f.submit "編集", class: "btn btn-success" %>
+  <% end %>
+</div>

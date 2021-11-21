@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// user共通
 .user-flex {
   display: table;
   margin: 15px auto;
@@ -50,12 +51,33 @@
     }
 
     .usertd{
-      border-right: 1px solid #dee2e6;
-      text-align: center;
       width: 150px;
-      padding-top: 40px;
     }
   }
 }
 
+// edit
+.user-form {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
 
+  .user-form-right {
+    width: 30%;
+  }
+
+  .user-form-left {
+    text-align: left;
+    border-left: 1px solid #dee2e6;
+    width: 65%;
+
+    .form-field {
+      height: 65px;
+    }
+
+    .form-text {
+      width: 600px;
+      height: 100px;
+    }
+  }
+}

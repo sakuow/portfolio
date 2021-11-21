@@ -3,16 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.article-heading {
-  background-color: rgba(0, 255, 0, 0.5);
-  text-align: center;
-  margin: 15px auto;
-}
-
-// index
+// article共通
 .article-flex {
   display: table;
   margin: 15px auto;
+
+  .article-heading {
+    background-color: rgba(0, 255, 0, 0.5);
+    text-align: center;
+    margin: 15px auto;
+  }
 }
 
 // show

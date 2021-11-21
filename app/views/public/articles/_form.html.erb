@@ -3,7 +3,7 @@
   <table class="table">
     <tr>
       <td class="article-form-right">投稿タイトル</td>
-      <td class="article-form-left"><%= f.text_field :title, class:"form-field" %></td>
+      <td class="article-form-left"><%= f.text_field :title,　autofocus: true, class:"form-field" %></td>
     </tr>
     <tr>
       <td class="article-form-right">投稿本文</td>
@@ -29,6 +29,6 @@
       </td>
     </tr>
   </table>
-    <%= f.submit "投稿", class:"btn btn-success" %>
+  <%= f.submit "投稿", class:"btn btn-success" %>
   <% end %>
 </div>

@@ -9,6 +9,7 @@ class Public::UsersController < ApplicationController
     favorites = Favorite.where(user_id: @user.id).pluck(:article_id)
     article = Article.find(favorites)
     @articles = Kaminari.paginate_array(article).page(params[:page])
+    @user = User.find(params[:id])
   end
 
   def myindex

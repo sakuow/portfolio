@@ -5,10 +5,10 @@
 </div>
 
 <% if @article.errors.any? %>
-<%= @article.errors.count %>件のエラーが発生。
-<% @article.errors.full_messages.each do |message| %>
-  <%= message %>
-<% end %>
+  <%= @article.errors.count %>件のエラーが発生しました。<br />
+  <% @article.errors.full_messages.each do |message| %>
+    ・<%= message %><br />
+  <% end %>
 <% end %>
 
 <%= render 'public/articles/form', article: @article %>
