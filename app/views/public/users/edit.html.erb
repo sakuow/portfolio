@@ -4,12 +4,14 @@
   </div>
 </div>
 
-<% if @user.errors.any? %>
-  <%= @user.errors.count %>件のエラーが発生しました。<br />
-  <% @user.errors.full_messages.each do |message| %>
-    ・<%= message %><br />
+<div class="user-error-message">
+  <% if @user.errors.any? %>
+    <%= @user.errors.count %>件のエラーが発生しました。<br />
+    <% @user.errors.full_messages.each do |message| %>
+      ・<%= message %><br />
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <div class="user-form">
   <%= form_with model: @user, local:true do |f| %>

@@ -73,6 +73,10 @@
 
 // _index
 .article-template {
+  .article-col {
+    border-right: 1px #dee2e6 dashed;
+  }
+
   .ctn {
     height: 150px;
     }
@@ -81,7 +85,6 @@
     border-radius: 50%;
     margin-bottom: 15px;
   }
-
 }
 
 // _form
