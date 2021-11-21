@@ -66,9 +66,10 @@
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  margin-top: 5px;
   .footer-copyright {
     color: black;
     margin: 10px auto;

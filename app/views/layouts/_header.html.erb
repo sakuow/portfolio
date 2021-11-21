@@ -54,9 +54,7 @@
       <!--管理者がサインインしている状態-->
     <% elsif admin_signed_in? %>
       <div class="header-logo">
-        <%= link_to articles_path do %>
-          <%= image_tag 'logo.png', size: '80x80' %>
-        <% end %>
+        <%= image_tag 'logo.png', size: '80x80' %>
       </div>
 
       <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
@@ -65,18 +63,19 @@
       <div class="navbar-collapse collapse show" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav">
           <li class="header-icon">
-            <%= link_to admin_tags_path, class: 'navbar-brand' do %>
+            <%= link_to admin_tagnames_path, class: 'navbar-brand' do %>
+              <i class="fas fa-tags"></i><br />
               タグ登録・一覧
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to admin_users, class: 'navbar-brand' do %>
+            <%= link_to admin_users_path, class: 'navbar-brand' do %>
               <i class="fas fa-address-book"></i><br />
               ユーザー一覧
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to destroy_admin_session_path, class: 'navbar-brand' do %>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'navbar-brand' do %>
               <i class="fas fa-sign-out-alt"></i><br />
               ログアウト
             <% end %>

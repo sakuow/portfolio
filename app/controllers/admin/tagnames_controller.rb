@@ -1,4 +1,4 @@
-class Admin::TagnamesController < ApplicationController
+class Admin::TagnamesController < Admin::BaseController
 
   def index
     @tag = Tagname.new

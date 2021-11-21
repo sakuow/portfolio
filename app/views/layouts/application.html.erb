@@ -13,16 +13,19 @@
   </head>
 
   <body>
+
     <header>
       <% unless current_page?(root_path) %>
-      <%= render "layouts/header" %>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key}") %></p>
-      <% end %>
+        <%= render "layouts/header" %>
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %></p>
+        <% end %>
       <% end %>
     </header>
     <%= yield %>
 
-    <%= render "layouts/footer" %>
+    <% unless current_page?(root_path) %>
+      <%= render "layouts/footer" %>
+    <% end %>
   </body>
 </html>

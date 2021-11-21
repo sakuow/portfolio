@@ -1,0 +1,43 @@
+<div class="admin-user-index">
+  <div class="admin-user-heading">
+    <h3>ユーザー一覧ページ</h3>
+  </div>
+  <table class="table table-bordered admin-users">
+    <thead>
+      <tr>
+        <th></th>
+        <th>ユーザー名</th>
+        <th>自己紹介</th>
+        <th>フォロー</th>
+        <th>フォロワー</th>
+        <th>いいね</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format:'jpeg' %>
+          </td>
+          <td>
+              <%= user.name %>
+          </td>
+          <% if user.introduction == nil %>
+            <td>こんにちは!</td>
+          <% else %>
+            <td><%= user.introduction %></td>
+          <% end %>
+         <td>
+            <%= user.followings.count %>
+          </td>
+         <td>
+            <%= user.followers.count %>
+          </td>
+         <td>
+             <%= user.favorites.count %>
+          </td>
+        </tr>
+      <% end%>
+    </tbody>
+  </table>
+</div>

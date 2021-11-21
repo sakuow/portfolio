@@ -1,0 +1,9 @@
+<div class="admin-tagname-edit">
+  <h3>タグ一覧・追加ページ</h3>
+  <div class="admin-tagname-form">
+    <%= form_with model: @tag, url: admin_tagnames_path, method: :post, local: true do |f| %>
+      <%= f.text_field :tag_name %>
+      <%= f.submit "タグを編集", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
