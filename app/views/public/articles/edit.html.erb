@@ -1,5 +1,15 @@
-<div class="article-heading">
-  <h3>投稿内容編集</h3>
+<div class="article-flex">
+  <div class="article-heading">
+    <h3>投稿内容編集欄</h3>
+  </div>
 </div>
 
+<div class="article-error-message">
+  <% if @article.errors.any? %>
+    <h5><%= @article.errors.count %>件のエラーが発生しました。</h5>
+    <% @article.errors.full_messages.each do |message| %>
+      ・<%= message %><br />
+    <% end %>
+  <% end %>
+</div>
 <%= render 'public/articles/form', article: @article %>

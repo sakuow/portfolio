@@ -6,3 +6,9 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+        name: 名前
+
+      article:
+        title: タイトル
+        body: 本文
+        images_files: 投稿画像

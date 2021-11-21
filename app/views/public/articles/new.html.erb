@@ -4,11 +4,12 @@
   </div>
 </div>
 
-<% if @article.errors.any? %>
-  <%= @article.errors.count %>件のエラーが発生しました。<br />
-  <% @article.errors.full_messages.each do |message| %>
-    ・<%= message %><br />
+<div class="article-error-message">
+  <% if @article.errors.any? %>
+    <h5><%= @article.errors.count %>件のエラーが発生しました。</h5>
+    <% @article.errors.full_messages.each do |message| %>
+      ・<%= message %><br />
+    <% end %>
   <% end %>
-<% end %>
-
+</div>
 <%= render 'public/articles/form', article: @article %>

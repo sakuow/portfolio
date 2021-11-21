@@ -64,3 +64,13 @@
   text-align: center;
   margin-bottom: 15px;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .footer-copyright {
+    color: black;
+    margin: 10px auto;
+  }
+}

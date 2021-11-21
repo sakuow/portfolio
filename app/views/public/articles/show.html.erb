@@ -1,5 +1,9 @@
 <div class="container textalign">
-  <h3>投稿詳細情報</h3>
+  <div class="article-flex">
+    <div class="article-heading">
+      <h3>投稿詳細情報</h3>
+    </div>
+  </div>
 
   <div class="center">
     <div class="form">
@@ -63,7 +67,8 @@
 
         <% if @article.user == current_user %>
         <p>
-          <%= link_to "投稿編集", edit_article_path(@article.id) %>  /
+          <%= link_to "投稿編集", edit_article_path(@article.id) %>
+          <span>　/　</span>
           <%= link_to "投稿を削除する", article_path(@article.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
         </p>
       <% end %>
