@@ -22,8 +22,7 @@
           <%= attachment_image_tag @article.user, :profile_image, :fill, 100, 100, format: 'jpeg', class:'article-profile-img' %>
         <% end %>
       </p>
-      <% if @article.user == current_user %>
-      <% else %>
+      <% unless @article.user == current_user %>
         <div class="article-button" id="follows_<%= @article.user.id %>">
           <%= render "public/relationships/button", user: @article.user %>
         </div>
