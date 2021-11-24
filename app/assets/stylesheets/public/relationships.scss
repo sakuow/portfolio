@@ -1,3 +1,21 @@
 // Place all the styles related to the public/relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//  relationships共通
+.relationships-flex {
+  display: table;
+  margin: 15px auto;
+
+  .relationships-heading {
+    background-color: rgba(0, 255, 0, 0.5);
+    text-align: center;
+    margin: 15px auto;
+  }
+}
+
+ .relationships-table {
+   width: 90%;
+   margin: 0 auto;
+ }

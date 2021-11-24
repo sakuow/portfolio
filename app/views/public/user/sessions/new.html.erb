@@ -24,6 +24,7 @@
           <%= f.submit "ログイン", class: "btn btn-success rounded-pill" %>
         </div>
       <% end %>
+
       <p class="session-link">
         アカウントをお持ちでない方は
         <%= link_to "こちら", new_user_registration_path %>から作成してください。
@@ -34,6 +35,10 @@
 </div>
 
 <style>
+  .field {
+    margin: 15px;
+  }
+
   .index {
     margin-bottom: 50px;
   }

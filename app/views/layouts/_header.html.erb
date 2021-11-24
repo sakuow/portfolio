@@ -16,25 +16,25 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav header-icon-ul">
           <li class="header-icon">
-            <%= link_to articles_timeline_path, class: 'navbar-brand' do %>
+            <%= link_to articles_timeline_path, class: 'navbar-brand header-menu' do %>
               <i class="far fa-images"></i><br />
               タイムライン
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to new_article_path, class: 'navbar-brand' do %>
+            <%= link_to new_article_path, class: 'navbar-brand header-menu' do %>
             <i class="fas fa-plus"></i><br />
               新規投稿
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to user_path(current_user.id), class: 'navbar-brand' do %>
+            <%= link_to user_path(current_user.id), class: 'navbar-brand header-menu' do %>
               <i class="fas fa-user"></i><br />
               MyPage
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to destroy_user_session_path,　method: :delete, class: 'navbar-brand' do %>
+            <%= link_to destroy_user_session_path,　method: :delete, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-sign-out-alt"></i><br />
               ログアウト
             <% end %>
@@ -43,7 +43,7 @@
 
         <div class="header-search">
           <%= form_with url:search_path, method: :get, local: true do |f| %>
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search search-icon"></i>
             <%= f.text_field 'content', placeholder: '投稿 / ユーザー名 を検索' %><br />
             <%= f.select 'model', options_for_select({ "投稿" => "article", "ユーザー名" => "user" }) %>
             <%= f.select 'method', options_for_select({ "部分一致" => "partical", "完全一致" => "perfect" }) %>
@@ -63,22 +63,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navbar-collapse collapse" id="navbarNavDropdown">
+      <div class="navbar-collapse collapse header-menu" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav">
           <li class="header-icon">
-            <%= link_to admin_tagnames_path, class: 'navbar-brand' do %>
+            <%= link_to admin_tagnames_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-tags"></i><br />
               タグ登録・一覧
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to admin_users_path, class: 'navbar-brand' do %>
+            <%= link_to admin_users_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-address-book"></i><br />
               ユーザー一覧
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to destroy_admin_session_path, method: :delete, class: 'navbar-brand' do %>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-sign-out-alt"></i><br />
               ログアウト
             <% end %>
@@ -97,28 +97,28 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navbar-collapse collapse" id="navbarNavDropdown">
+      <div class="navbar-collapse collapse header-menu" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav">
           <li class="header-icon">
-            <%= link_to articles_path, class: 'navbar-brand' do %>
+            <%= link_to articles_path, class: 'navbar-brand header-menu' do %>
               <i class="far fa-images"></i><br />
               人気投稿一覧
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to new_user_registration_path, class: 'navbar-brand' do %>
+            <%= link_to new_user_registration_path, class: 'navbar-brand header-menu' do %>
             <i class="fas fa-user-plus"></i><br />
             新規登録
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to new_user_session_path, class: 'navbar-brand' do %>
+            <%= link_to new_user_session_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-sign-in-alt"></i><br />
               ログイン
             <% end %>
           </li>
           <li class="header-icon">
-            <%= link_to homes_about_path, class: 'navbar-brand' do %>
+            <%= link_to homes_about_path, class: 'navbar-brand header-menu' do %>
             <i class="fas fa-map-marker-alt"></i><br />
             marksとは
             <% end %>

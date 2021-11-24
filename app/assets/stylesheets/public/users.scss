@@ -22,13 +22,14 @@
   .profile {
     width: 50%;
     margin: 10px auto;
+
+    .profile-img {
+      width: 100%;
+      border-radius: 50%;
+      height: 400px;
+    }
   }
 
-  .profile-img {
-    width: 100%;
-    border-radius: 50%;
-    height: 400px;
-  }
 
   .user-edit {
     margin: 15px 0;
@@ -36,7 +37,7 @@
   }
 
   .lnk {
-    width: 80%;
+    width: 85%;
     text-align: center;
     margin: 10px auto;
   }
