@@ -7,14 +7,14 @@
       <%= link_to articles_path do %>
         <%= image_tag 'logo.png', size: '80x80' %>
         <% end %>
-        <!--ハンバーガー作成・修正-->
     </div>
-      <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navbar-collapse collapse show" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto nav">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto nav header-icon-ul">
           <li class="header-icon">
             <%= link_to articles_timeline_path, class: 'navbar-brand' do %>
               <i class="far fa-images"></i><br />
@@ -40,17 +40,18 @@
             <% end %>
           </li>
         </ul>
+
+        <div class="header-search">
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <i class="fas fa-search"></i>
+            <%= f.text_field 'content', placeholder: '投稿 / ユーザー名 を検索' %><br />
+            <%= f.select 'model', options_for_select({ "投稿" => "article", "ユーザー名" => "user" }) %>
+            <%= f.select 'method', options_for_select({ "部分一致" => "partical", "完全一致" => "perfect" }) %>
+            <%= f.submit "検索" %>
+          <% end %>
+        </div>
       </div>
 
-      <div class="header-search">
-        <%= form_with url:search_path, method: :get, local: true do |f| %>
-          <i class="fas fa-search"></i>
-          <%= f.text_field 'content', placeholder: '投稿 / ユーザー名 を検索' %><br />
-          <%= f.select 'model', options_for_select({ "投稿" => "article", "ユーザー名" => "user" }) %>
-          <%= f.select 'method', options_for_select({ "部分一致" => "partical", "完全一致" => "perfect" }) %>
-          <%= f.submit "検索" %>
-        <% end %>
-      </div>
 
       <!--管理者がサインインしている状態-->
     <% elsif admin_signed_in? %>
@@ -58,10 +59,11 @@
         <%= image_tag 'logo.png', size: '80x80' %>
       </div>
 
-      <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse show" id="navbarNavDropdown">
+
+      <div class="navbar-collapse collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav">
           <li class="header-icon">
             <%= link_to admin_tagnames_path, class: 'navbar-brand' do %>
@@ -91,10 +93,11 @@
         <% end %>
       </div>
 
-      <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse show" id="navbarNavDropdown">
+
+      <div class="navbar-collapse collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav">
           <li class="header-icon">
             <%= link_to articles_path, class: 'navbar-brand' do %>

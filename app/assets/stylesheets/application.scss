@@ -76,5 +76,66 @@ footer {
   }
 }
 
-@media screen and (min-width:768px) and ( max-width:991px) {
+@media (max-width:991px) and (min-width:845px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width:844px) and  (min-width:600px) {
+  body {
+  font-size: small;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .article-template {
+
+    .article-button {
+      font-size: x-small;
+    }
+
+    .article-tagname {
+      font-size: x-small;
+    }
+  }
+  .user-page {
+    .lnk {
+
+    }
+
+  }
+}
+
+@media (max-width:599px) and  (min-width:374px) {
+  body {
+    font-size: small;
+  }
+
+  .article-template{
+    display: block;
+
+    .article-col {
+      max-width: 100%;
+      border-bottom: 1px black dashed;
+      border-right: none;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width:373px) and (min-width:0px) {
+  body {
+    font-size: small;
+  }
+
+  .article-template{
+    display: block;
+
+    .article-col {
+      max-width: 100%;
+    }
+  }
 }

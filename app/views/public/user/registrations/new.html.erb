@@ -32,10 +32,11 @@
         </table>
 
       <% end %>
-      <h5 class="link">
+      <p class="registration-link">
         アカウントをお持ちの方は
         <%= link_to "こちら", new_user_session_path %>からログインしてください。
-      </h3>
+      </p>
+
     </div>
   </div>
 </div>
@@ -45,7 +46,8 @@
     margin-bottom: 50px;
   }
 
-  .link {
+  .registration-link {
     margin: 50px 0;
+    font-size: small;
   }
 </style>

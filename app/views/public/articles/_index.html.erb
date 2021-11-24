@@ -11,30 +11,33 @@
     </div>
 
     <p>
-      投稿日時: <%= l article.created_at, format: :short %>
+      <i class="fas fa-calendar-alt"></i>: <%= l article.created_at, format: :short %>
     </p>
-    <p>
-      <% if user_signed_in? %>
-        <% if article.user == current_user %>
-          <%= article.favorites.count %> marks
+
+    <div class="article-button">
+      <p>
+        <% if user_signed_in? %>
+          <% if article.user == current_user %>
+            <%= article.favorites.count %> marks
+          <% else %>
+            <span id="favorites_<%= article.id %>">
+              <%= render 'public/favorites/button', article: article %>
+            </span>
+          <% end %>
+          <span>　/　</span>
+          <%= link_to "#{article.comments.count}コメント", article_path(article.id) %>
         <% else %>
-          <span id="favorites_<%= article.id %>">
-            <%= render 'public/favorites/button', article: article %>
-          </span>
+            <%= article.favorites.count %> marks  /  <%= article.comments.count %>
         <% end %>
-        <span>　/　</span>
-        <%= link_to "#{article.comments.count}コメント", article_path(article.id) %>
-      <% else %>
-          <%= article.favorites.count %> marks  /  <%= article.comments.count %>
-      <% end %>
-    </p>
+      </p>
+    </div>
 
     <table class="table">
       <tr>
         <%= link_to user_path(article.user.id) do %>
           <%= attachment_image_tag article.user, :profile_image, :fill, 50, 50, format: 'jpeg', class:'article-profile-img' %>
         <% end %>
-        <%= link_to article.user.name, user_path(article.user.id) %>
+        : <%= link_to article.user.name, user_path(article.user.id) %>
       </tr>
       <tr>
         <td>
@@ -50,14 +53,16 @@
       </tr>
       <tr>
         <td>
-          <details open>
-            <summary>タグ(クリック)</summary>
-            <p>
-              <% article.tagnames.each do |tag| %>
-                ・<%= tag.tag_name %>
-              <% end %>
-            </p>
-          </details>
+          <span class="article-tagname">
+            <details open>
+              <summary>タグ(クリック)</summary>
+              <p>
+                <% article.tagnames.each do |tag| %>
+                  ・<%= tag.tag_name %>
+                <% end %>
+              </p>
+            </details>
+          </span>
         </td>
         </tr>
     </table>
@@ -65,3 +70,4 @@
   <% end %>
 </div>
 <%= paginate articles %>
+
