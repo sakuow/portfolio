@@ -78,13 +78,20 @@
 
 // _index
 .article-template {
+  .skippr {
+    div {
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+    }
+  }
+
   .article-col {
     border-right: 1px #dee2e6 dashed;
   }
 
   .ctn {
     height: 150px;
-    }
+  }
 
   .article-profile-img {
     border-radius: 50%;
