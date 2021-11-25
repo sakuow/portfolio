@@ -1,10 +1,52 @@
+<div class="top-index">
+
+  <div class="top-header">
+    <div class="top-header-text">
+      <h1 class="top-header-h">
+        人生で一度は行ってみたい。<br />
+        この景色を見てみたい。
+      </h1>
+      <p>
+        写真や画像を見てそう思ったことはありませんか？<br />
+        このサイトでは、旅先の思い出の場所や感動した景色、有名な場所、<br />
+        はたまた地元の知る人ぞ知る隠れスポットまで<br />
+        あらゆる場所の写真・場所の情報が集まります。
+      </p>
+      <p>
+        いきたいと思ったら行動し、夢を叶えにいきましょう！<br />
+        人生の楽しみが増え、あなたの世界がさらに広がる可能性がこのサイトにはあります。
+      </p>
+    </div>
+
+    <div class="top-logo">
+      <%= link_to root_path, class: "top-logo-text" do %>
+        <h1>marks</h1>
+      <% end %>
+
+    </div>
+    <div class="top-link">
+      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-light rounded-pill top-link-button" %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary rounded-pill" %>
+    </div>
+  </div>
+
+  <div class="top-visual">
+    <div class="top-visual-slide">
+      <div class="image1"></div>
+      <div class="image2"></div>
+      <div class="image3"></div>
+      <div class="image4"></div>
+      <div class="image5"></div>
+      <div class="image6"></div>
+    </div>
+  </div>
+
+  <div class="top-text">
+
+  </div>
+
+</div>
+
  <div class="img">
   <div class="text">
-   <h1>marks</h1>
-   <p>
-    行きたい場所を探し、計画を立てるまでこのアプリひとつあれば全て済ませることが出来ます
-   </p>
-   <%= link_to "新規登録", new_user_registration_path, class: "btn btn-light rounded-pill" %>
-   <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary rounded-pill" %>
-  </div>
  </div>

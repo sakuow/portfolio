@@ -1,10 +1,62 @@
- <div class="about">
-  <div class="text">
-   <h1>marks</h1>
-   <p>
-    一度しかない人生は、どこに行っても何をしてもいいのです。<br />
-    このサイトで、いきたい場所・観てみたい場所を探し人生の目標としましょう！<br />
-    あなたの世界がさらに広がるはずです！
-   </p>
+<div class="about">
+<div class="navbar navbar-expand-lg about-head-nav">
+ <div class="container">
+  <div class="about-header">
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.png', size: '80x80' %>
+    <% end %>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse header-menu" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto nav">
+      <li class="about-header-icon">
+        <%= link_to articles_path, class: 'navbar-brand about-header-menu' do %>
+          <i class="far fa-images"></i><br />
+          人気投稿一覧
+        <% end %>
+      </li>
+      <li class="about-header-icon">
+        <%= link_to new_user_registration_path, class: 'navbar-brand about-header-menu' do %>
+        <i class="fas fa-user-plus"></i><br />
+        新規登録
+        <% end %>
+      </li>
+      <li class="about-header-icon">
+        <%= link_to new_user_session_path, class: 'navbar-brand about-header-menu' do %>
+          <i class="fas fa-sign-in-alt"></i><br />
+          ログイン
+        <% end %>
+      </li>
+      <li class="about-header-icon">
+        <%= link_to homes_about_path, class: 'navbar-brand about-header-menu' do %>
+        <i class="fas fa-map-marker-alt"></i><br />
+        marksとは
+        <% end %>
+      </li>
+    </ul>
   </div>
  </div>
+</div>
+
+ <div class="text">
+  <h1>marks</h1>
+   <p>
+     現代ではさまざまなSNSやアプリケーションが身近に存在し、誰でも使うことができます。<br />
+     その日あった出来事や、お気に入りの写真を共有する。<br />
+     興味のある分野を検索し、情報を得る。など、使い方も多岐にわたっています。
+   </p>
+   <p>
+     そんなたくさんあるサイトのなかでも当サイトでは、<br />
+     <span class="about-text">
+     ・いきたい場所を探すこと、<br />
+     ・地図上で情報を得て予定をたてること<br />
+     </span>
+     に特化しています。
+   </p>
+   <p>※情報の取り扱いや他者へのコメントなどには気を配って使用してください。</p>
+ </div>
+</div>

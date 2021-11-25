@@ -5,7 +5,7 @@
     <div class="ctn">
       <div class="form">
         <% article.images.each do |images| %>
-          <div class="box", style="background-image: url(<%= attachment_url images, :file, :fill, 100, 100, format: 'jpeg' %>)"></div>
+          <div class="box", style="background-image: url(<%= attachment_url images, :file, format: 'jpeg' %>)"></div>
         <% end %>
       </div>
     </div>

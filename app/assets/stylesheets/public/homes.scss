@@ -2,20 +2,98 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.img {
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  background-image: image-url("top.jpg");
-  background-position: center;
-  background-size: cover;
+
+.top-index {
+  font-family: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  background-color: #fff;
+  color: #13191b;
+  line-height: 1.7;
+
+  .top-header {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+
+
+    .top-header-text {
+      color: white;
+      text-align: left;
+      padding: 15px;
+      .top-header-h {
+        margin: 30px;
+      }
+    }
+
+    .top-logo {
+      margin: 30px auto;
+      text-align: center;
+
+      .top-logo-text {
+        color: white;
+      }
+    }
+
+    .top-link {
+      text-align: center;
+      .top-link-button {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .top-visual {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    // background-position: center;
+    // background-size: cover;
+    .top-visual-slide {
+      .image1 {
+        background-image: image-url("top.jpg");
+      }
+      .image2 {
+        background-image: image-url("top1.jpg");
+      }
+      .image3 {
+        background-image: image-url("top2.jpg");
+      }
+      .image4 {
+        background-image: image-url("top3.jpg");
+      }
+      .image5 {
+        background-image: image-url("top4.jpg");
+      }
+      .image6 {
+        background-image: image-url("top5.jpg");
+      }
+    }
+  }
 }
 
 .about {
   width: 100%;
   height: 100vh;
-  text-align: center;
-  background-image: image-url("about.jpg");
+  background-image: image-url("top6.jpg");
   background-position: center;
   background-size: cover;
+  .about-head-nav {
+    .about-header-icon {
+      text-align: center;
+      .about-header-menu {
+        color: white;
+      }
+    }
+  }
+
+  .text {
+    color: white;
+    width: 60%;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: left;
+    .about-text {
+      border-bottom: 1px solid;
+      margin: 5px;
+    }
+  }
 }

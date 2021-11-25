@@ -17,10 +17,12 @@
 
     <header>
       <% unless current_page?(root_path) %>
+      <% unless current_page?(homes_about_path) %>
         <%= render "layouts/header" %>
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, class: "#{key}") %></p>
         <% end %>
+      <% end %>
       <% end %>
     </header>
     <%= yield %>

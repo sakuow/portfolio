@@ -19,6 +19,12 @@
 .textalign {
   text-align: center;
   padding-top: 10px;
+  .skippr {
+    div {
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+    }
+  }
 
   div.center {
     height: 400px;
