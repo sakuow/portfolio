@@ -70,9 +70,6 @@
     <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format:'jpeg', class:'profile-img' %>
   </div>
 
-
-
-
   <div class="user-edit">
     <% unless @user == current_user %>
       <p class="article-button" id="follows_<%= @user.id %>">
@@ -81,7 +78,6 @@
     <% end %>
     <p><%= link_to "ユーザーの投稿一覧へ", myindex_path(@user.id) %></p>
   </div>
-
 
   <div class="lnk">
     <span>
