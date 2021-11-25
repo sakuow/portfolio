@@ -72,7 +72,7 @@
 
   <div class="user-edit">
     <% unless @user == current_user %>
-      <p class="article-button" id="follows_<%= @user.id %>">
+      <p id="follows_<%= @user.id %>">
         <%= render "public/relationships/button", user: @user %>
       </p>
     <% end %>
