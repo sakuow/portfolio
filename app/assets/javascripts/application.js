@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function () {
     arrows:false,
     autoPlay:true,
     childrenElementType:'div',
-    autoPlayDuration:5000,
+    autoPlayDuration:4000,
     hidePrevious:true
   });
 });

@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-lg bg-dark navbar-dark header_header">
+<div class="navbar navbar-expand-lg bg-white header_header">
   <div class="container">
 
     <!--ユーザーがサインインしている状態-->
@@ -15,25 +15,25 @@
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto nav header-icon-ul">
-          <li class="header-icon">
+          <li class="header-icon-li">
             <%= link_to articles_timeline_path, class: 'navbar-brand header-menu' do %>
               <i class="far fa-images"></i><br />
               TimeLine
             <% end %>
           </li>
-          <li class="header-icon">
+          <li class="header-icon-li">
             <%= link_to new_article_path, class: 'navbar-brand header-menu' do %>
             <i class="fas fa-plus"></i><br />
               New
             <% end %>
           </li>
-          <li class="header-icon">
+          <li class="header-icon-li">
             <%= link_to user_path(current_user.id), class: 'navbar-brand header-menu' do %>
               <i class="fas fa-user"></i><br />
               MyPage
             <% end %>
           </li>
-          <li class="header-icon">
+          <li class="header-icon-li">
             <%= link_to destroy_user_session_path,　method: :delete, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-sign-out-alt"></i><br />
               LogOut
@@ -63,21 +63,21 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navbar-collapse collapse header-menu" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto nav">
-          <li class="header-icon">
+      <div class="navbar-collapse collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto nav header-icon-ul">
+          <li class="header-icon-li">
             <%= link_to admin_tagnames_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-tags"></i><br />
               Tags
             <% end %>
           </li>
-          <li class="header-icon">
+          <li class="header-icon-li">
             <%= link_to admin_users_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-address-book"></i><br />
               User
             <% end %>
           </li>
-          <li class="header-icon">
+          <li class="header-icon-li">
             <%= link_to destroy_admin_session_path, method: :delete, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-sign-out-alt"></i><br />
               LogOut
@@ -97,27 +97,27 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navbar-collapse collapse header-menu" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto nav">
-          <li class="header-icon">
+      <div class="navbar-collapse collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto nav header-icon-ul">
+          <li class="header-icon-li">
             <%= link_to articles_path, class: 'navbar-brand header-menu' do %>
               <i class="far fa-images"></i><br />
               Popular
             <% end %>
           </li>
-          <li class="header-icon">
+          <li class="header-icon-li">
             <%= link_to new_user_registration_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-user-plus"></i><br />
               SignIn
             <% end %>
           </li>
-          <li class="header-icon">
+          <li class="header-icon-li">
             <%= link_to new_user_session_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-sign-in-alt"></i><br />
               LogIn
             <% end %>
           </li>
-          <li class="header-icon">
+          <li class="header-icon-li">
             <%= link_to homes_about_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-map-marker-alt"></i><br />
               About
