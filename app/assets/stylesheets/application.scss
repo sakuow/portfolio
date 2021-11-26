@@ -40,8 +40,11 @@
 .header_header {
   .header-icon {
     text-align: center;
+    margin-right: 10px;
+    .header-menu {
+      font-family: 'Homemade Apple', cursive;
+    }
   }
-
   .header-search {
     .search-icon {
       color: white;
@@ -93,6 +96,7 @@ footer {
 }
 
 @media (max-width:844px) and  (min-width:600px) {
+
   body {
   font-size: small;
   }
@@ -105,13 +109,11 @@ footer {
   .top-index {
     .top-header {
       .top-header-text {
-
         .top-header-h {
           font-size: x-large;
             margin: 10px;
         }
       }
-
       .top-logo {
         margin: 10px auto;
       }
@@ -129,11 +131,9 @@ footer {
 
   // _index
   .article-template {
-
     .article-button {
       font-size: x-small;
     }
-
     .article-tagname {
       font-size: x-small;
     }
@@ -148,11 +148,14 @@ footer {
 
   // ヘッダー
   .header_header {
-
+    .header-logo {
+      .header-logo-mark {
+        border-radius: 50%;
+      }
+    }
     .header-menu {
       font-size: small;
     }
-
     .header-search {
       font-size: smaller;
     }
@@ -162,15 +165,29 @@ footer {
   .top-index {
     .top-header {
       .top-header-text {
-
         .top-header-h {
           font-size: x-large;
             margin: 10px;
         }
       }
-
       .top-logo {
         margin: 10px auto;
+      }
+    }
+  }
+
+  // homes-about
+  .about {
+    .about-header {
+      .about-header-logo {
+        border-radius: 50%;
+      }
+    }
+    .about-text {
+      width: 90%;
+      padding: 10px;
+      .about-text-head {
+        font-size: x-large;
       }
     }
   }
@@ -178,11 +195,11 @@ footer {
   // user-show
   .user-page {
     .profile {
+      width: 80%;
       .profile-img {
         height: auto;
       }
     }
-
     .lnk {
       font-size: smaller;
     }
@@ -191,7 +208,6 @@ footer {
   // _index
   .article-template{
     display: block;
-
     .article-col {
       max-width: 100%;
       border-bottom: 1px black dashed;
@@ -199,16 +215,13 @@ footer {
       margin-top: 10px;
     }
   }
-
   .relationships-table {
     font-size: small;
   }
-
     // article-new
   .article-form {
     width: unset;
   }
-
   // article-show
   .textalign {
     .article-box {
@@ -228,11 +241,14 @@ footer {
 
     // ヘッダー
   .header_header {
-
+    .header-logo {
+      .header-logo-mark {
+        border-radius: 50%;
+      }
+    }
     .header-menu {
       font-size: small;
     }
-
     .header-search {
       font-size: smaller;
     }
@@ -242,7 +258,6 @@ footer {
   .top-index {
     .top-header {
       .top-header-text {
-
         .top-header-h {
           font-size: x-large;
             margin: 10px;
@@ -255,16 +270,30 @@ footer {
     }
   }
 
+  // homes-about
+  .about {
+    .about-header {
+      .about-header-logo {
+        border-radius: 50%;
+      }
+    }
+    .about-text {
+      width: 90%;
+      padding: 10px;
+      .about-text-head {
+        font-size: x-large;
+      }
+    }
+  }
+
   // user-show
   .user-page {
-
     .profile {
-
+      width: 80%;
       .profile-img {
         height: auto;
       }
     }
-
     .lnk {
       font-size: smaller;
       width: 95%;
@@ -274,7 +303,6 @@ footer {
   // _index
   .article-template {
     display: block;
-
     .article-col {
       max-width: 100%;
       border-bottom: 1px black dashed;

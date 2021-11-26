@@ -14,7 +14,7 @@
       <i class="fas fa-calendar-alt"></i>: <%= l article.created_at, format: :short %>
     </p>
 
-    <div>
+    <div class="text-center">
       <p>
         <% if user_signed_in? %>
           <% if article.user == current_user %>
@@ -69,5 +69,6 @@
   </div>
   <% end %>
 </div>
+
 <%= paginate articles %>
 

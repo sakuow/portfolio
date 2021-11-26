@@ -30,6 +30,9 @@
 
       .top-logo-text {
         color: white;
+        h1 {
+          font-family: 'Homemade Apple', cursive;
+        }
       }
     }
 
@@ -79,19 +82,24 @@
   .about-head-nav {
     .about-header-icon {
       text-align: center;
+    margin-right: 10px;
       .about-header-menu {
+        font-family: 'Homemade Apple', cursive;
         color: white;
       }
     }
   }
 
-  .text {
+  .about-text {
     color: white;
     width: 60%;
     padding: 15px;
     margin: 0 auto;
     text-align: left;
-    .about-text {
+    h1 {
+      font-family: 'Homemade Apple', cursive;
+    }
+    .about-text-border {
       border-bottom: 1px solid;
       margin: 5px;
     }

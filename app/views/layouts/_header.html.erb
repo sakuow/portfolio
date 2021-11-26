@@ -5,7 +5,7 @@
     <% if user_signed_in? %>
     <div class="header-logo">
       <%= link_to articles_path do %>
-        <%= image_tag 'logo.png', size: '80x80' %>
+        <%= image_tag 'logo.png', size: '80x80', class:"header-logo-mark" %>
         <% end %>
     </div>
 
@@ -18,13 +18,13 @@
           <li class="header-icon">
             <%= link_to articles_timeline_path, class: 'navbar-brand header-menu' do %>
               <i class="far fa-images"></i><br />
-              タイムライン
+              TimeLine
             <% end %>
           </li>
           <li class="header-icon">
             <%= link_to new_article_path, class: 'navbar-brand header-menu' do %>
             <i class="fas fa-plus"></i><br />
-              新規投稿
+              New
             <% end %>
           </li>
           <li class="header-icon">
@@ -36,7 +36,7 @@
           <li class="header-icon">
             <%= link_to destroy_user_session_path,　method: :delete, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-sign-out-alt"></i><br />
-              ログアウト
+              LogOut
             <% end %>
           </li>
         </ul>
@@ -44,10 +44,10 @@
         <div class="header-search">
           <%= form_with url:search_path, method: :get, local: true do |f| %>
             <i class="fas fa-search search-icon"></i>
-            <%= f.text_field 'content', placeholder: '投稿 / ユーザー名 を検索' %><br />
+            <%= f.text_field 'content', placeholder: 'キーワードを検索' %><br />
             <%= f.select 'model', options_for_select({ "投稿" => "article", "ユーザー名" => "user" }) %>
             <%= f.select 'method', options_for_select({ "部分一致" => "partical", "完全一致" => "perfect" }) %>
-            <%= f.submit "検索" %>
+            <%= f.submit "Search" %>
           <% end %>
         </div>
       </div>
@@ -56,7 +56,7 @@
       <!--管理者がサインインしている状態-->
     <% elsif admin_signed_in? %>
       <div class="header-logo">
-        <%= image_tag 'logo.png', size: '80x80' %>
+        <%= image_tag 'logo.png', size: '80x80', class:"header-logo-mark" %>
       </div>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,19 +68,19 @@
           <li class="header-icon">
             <%= link_to admin_tagnames_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-tags"></i><br />
-              タグ登録・一覧
+              Tags
             <% end %>
           </li>
           <li class="header-icon">
             <%= link_to admin_users_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-address-book"></i><br />
-              ユーザー一覧
+              User
             <% end %>
           </li>
           <li class="header-icon">
             <%= link_to destroy_admin_session_path, method: :delete, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-sign-out-alt"></i><br />
-              ログアウト
+              LogOut
             <% end %>
           </li>
         </ul>
@@ -89,7 +89,7 @@
     <% else %>
       <div class="header-logo">
         <%= link_to root_path do %>
-          <%= image_tag 'logo.png', size: '80x80' %>
+          <%= image_tag 'logo.png', size: '80x80', class:"header-logo-mark" %>
         <% end %>
       </div>
 
@@ -102,25 +102,25 @@
           <li class="header-icon">
             <%= link_to articles_path, class: 'navbar-brand header-menu' do %>
               <i class="far fa-images"></i><br />
-              人気投稿一覧
+              Popular
             <% end %>
           </li>
           <li class="header-icon">
             <%= link_to new_user_registration_path, class: 'navbar-brand header-menu' do %>
-            <i class="fas fa-user-plus"></i><br />
-            新規登録
+              <i class="fas fa-user-plus"></i><br />
+              SignIn
             <% end %>
           </li>
           <li class="header-icon">
             <%= link_to new_user_session_path, class: 'navbar-brand header-menu' do %>
               <i class="fas fa-sign-in-alt"></i><br />
-              ログイン
+              LogIn
             <% end %>
           </li>
           <li class="header-icon">
             <%= link_to homes_about_path, class: 'navbar-brand header-menu' do %>
-            <i class="fas fa-map-marker-alt"></i><br />
-            marksとは
+              <i class="fas fa-map-marker-alt"></i><br />
+              About
             <% end %>
           </li>
         </ul>
