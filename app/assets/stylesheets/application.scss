@@ -41,7 +41,7 @@
 .header_header {
   background-image: image-url("head.jpg");
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
   height: 150px;
 
   .header-icon-ul {
@@ -137,6 +137,12 @@ footer {
     max-width: 100%;
   }
 
+  // ヘッダー
+.header_header {
+  height: auto;
+}
+
+
   // homes-top
   .top-index {
     .top-header {
@@ -180,6 +186,7 @@ footer {
 
   // ヘッダー
   .header_header {
+    height: auto;
     .header-logo {
       .header-logo-mark {
         border-radius: 50%;
@@ -273,6 +280,7 @@ footer {
 
     // ヘッダー
   .header_header {
+    height: auto;
     .header-logo {
       .header-logo-mark {
         border-radius: 50%;
