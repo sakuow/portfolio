@@ -8,6 +8,7 @@
         <th></th>
         <th>ユーザー名</th>
         <th>自己紹介</th>
+        <th>メールアドレス</th>
         <th>フォロー</th>
         <th>フォロワー</th>
         <th>いいね</th>
@@ -27,6 +28,7 @@
           <% else %>
             <td><%= user.introduction %></td>
           <% end %>
+          <td><%= user.email %></td>
          <td>
             <%= user.followings.count %>
           </td>
