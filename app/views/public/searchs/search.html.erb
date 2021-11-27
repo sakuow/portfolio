@@ -1,43 +1,51 @@
 <div class="container">
 
-  <div class="search-flex">
+
     <% if @model == 'user' %>
       <% if @datas.empty? %>
+      <div class="search-flex">
         <div class="search-heading">
           <h3>
             【ユーザーの検索】<br />
             '<%= @content %>' に該当する投稿はありませんでした。
           </h3>
         </div>
+      </div>
         <p>キーワードや条件を変えてお試しください</p>
       <% else %>
+      <div class="search-flex">
         <div class="search-heading">
           <h3>
             【ユーザーの検索】<br />
             '<%= @content %>' の検索結果
           </h3>
         </div>
+      </div>
         <%= render 'public/searchs/show', users: @datas %>
       <% end %>
     <% elsif @model == 'article' %>
       <% if @datas.empty? %>
+      <div class="search-flex">
         <div class="search-heading">
           <h3>
             【投稿の検索】<br />
             '<%= @content %>' に該当する投稿はありませんでした。
           </h3>
         </div>
+      </div>
         <p>キーワードや条件を変えてお試しください</p>
       <% else %>
+      <div class="search-flex">
         <div class="search-heading">
           <h3>
             【投稿の検索】<br />
             '<%= @content %>' の検索結果
           </h3>
         </div>
+      </div>
+        <%= render 'public/articles/index', articles: @datas %>
       <% end %>
     <% end %>
   </div>
 
-  <%= render 'public/articles/index', articles: @datas %>
 </div>

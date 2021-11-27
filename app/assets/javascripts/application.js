@@ -40,7 +40,7 @@ $(document).on('turbolinks:load', function () {
 // _indexのスライド
 $(document).on('turbolinks:load', function() {
   $(".form").skippr({
-    transition : 'slide',
+    transition : 'fade',
     speed:1500,
     arrows:false,
     autoPlay:true,

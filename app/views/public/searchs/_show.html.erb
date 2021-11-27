@@ -1,45 +1,48 @@
-  <table class="table table-bordered mb-5">
-    <thead>
-      <tr>
-        <th>ユーザー名</th>
-        <th>自己紹介</th>
-        <th>フォロー</th>
-        <th>フォロワー</th>
-        <th>いいね</th>
-      </tr>
-    </thead>
-    <% users.each do |user| %>
-      <tbody>
+  <div class="search-table">
+    <table class="table table-bordered mb-5">
+      <thead>
         <tr>
-          <td>
-            <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format:'jpeg' %>
-            <%= user.name %>
-            <% unless user == current_user %>
-              <%= render 'public/relationships/button', user: user %>
-            <% end %>
-          </td>
-          <% if user.introduction == nil %>
-            <td>こんにちは!</td>
-          <% else %>
-            <td><%= user.introduction %></td>
-          <% end %>
-         <td>
-          <%= link_to user_followings_path(user.id) do %>
-            <%= user.followings.count %>
-          <% end %>
-          </td>
-         <td>
-          <%= link_to user_followers_path(user.id) do %>
-            <%= user.followers.count %>
-          <% end %>
-          </td>
-         <td>
-           <%= link_to favorites_user_path(user) do %>
-             <%= user.favorites.count %>
-           <% end %>
-          </td>
+          <th>ユーザー名</th>
+          <th>自己紹介</th>
+          <th>フォロー</th>
+          <th>フォロワー</th>
+          <th>いいね</th>
         </tr>
-      </tbody>
-    <% end %>
-  </table>
+      </thead>
+      <% users.each do |user| %>
+        <tbody>
+          <tr>
+            <td>
+              <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format:'jpeg' %>
+              <%= user.name %>
+              <% unless user == current_user %>
+                <%= render 'public/relationships/button', user: user %>
+              <% end %>
+            </td>
+            <% if user.introduction == nil %>
+              <td>こんにちは!</td>
+            <% else %>
+              <td><%= user.introduction %></td>
+            <% end %>
+           <td>
+            <%= link_to user_followings_path(user.id) do %>
+              <%= user.followings.count %>
+            <% end %>
+            </td>
+           <td>
+            <%= link_to user_followers_path(user.id) do %>
+              <%= user.followers.count %>
+            <% end %>
+            </td>
+           <td>
+             <%= link_to favorites_user_path(user) do %>
+               <%= user.favorites.count %>
+             <% end %>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+
   <%= paginate users %>
