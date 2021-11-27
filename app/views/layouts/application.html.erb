@@ -29,7 +29,9 @@
     <%= yield %>
 
     <% unless current_page?(root_path) %>
+    <% unless current_page?(homes_about_path) %>
       <%= render "layouts/footer" %>
+    <% end %>
     <% end %>
   </body>
 </html>

@@ -26,15 +26,6 @@
 // topのスライド
 $(document).on('turbolinks:load', function () {
   $(".top-visual-slide").skippr({
-    // slideshowSpeed:1000,
-    // animation:"fade",
-    // controlNav:false,
-    // directionNav:false,
-    // pauseOnHover:false,
-    // reverse:false,
-    // animationSpeed:1500,
-    // sllideshow:true,
-    // childrenElementType : 'div'
     transition:'fade',
     navType:"bubble",
     speed:1500,
