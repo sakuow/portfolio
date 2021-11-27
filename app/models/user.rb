@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :favorited_articles, through: :favorites, source: :article
 
   validates :name, presence: true
+  validates :profile_image, presence: true
 
 
   def follow(user_id)
