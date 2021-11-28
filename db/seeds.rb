@@ -27,7 +27,7 @@ Tagname.create([
   { tag_name: '商店街'},
   { tag_name: '路地'},
   { tag_name: '岬'},
-  ])
+])
 
 Admin.create!(
   email: 'a@a',
