@@ -74,6 +74,7 @@ helper_method :sort_coumn, :sort_direction
     end
   end
 
+
   private
 
   def article_params
