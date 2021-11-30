@@ -56,6 +56,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -82,3 +83,4 @@ gem 'rails-i18n', '~> 5.1'
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
 gem 'rubocop-performance', require:false
+
