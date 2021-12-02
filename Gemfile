@@ -68,6 +68,7 @@ gem 'devise'
 gem "refile", require:"refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "gmaps4rails"
+# gem "google-cloud-vision"
 gem "exifr"
 gem "geocoder"
 gem 'kaminari','~> 1.2.1'
