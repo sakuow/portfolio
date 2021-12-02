@@ -47,6 +47,13 @@ helper_method :sort_coumn, :sort_direction
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
+      @article.images.each do |image|
+        unless Vision.get_image_data(image)
+          flash[:notice] = '画像が不適切です'
+          render :new
+          return
+        end
+      end
       redirect_to article_path(@article.id)
       flash[:notice] = "投稿しました！"
     else
@@ -55,41 +62,22 @@ helper_method :sort_coumn, :sort_direction
   end
 
   def update
-
-    # binding.irb
-    # if params[:article][:images_files].present?
-    #  images = File.open(params[:article][:images_files].tempfile)
-    #  result = Vision.image_analysis(images)
-    # else
-    #   result = true
-    # end
-
     @article = Article.find(params[:id])
-    @article.update(article_params)
-    # @article.save
 
-    # binding.irb
-
-    @article.images.each do |image|
-      unless Vision.get_image_data(image)
-        flash[:notice] = '画像が不適切です'
-        render :edit
-        return
+    if @article.update(article_params)
+      @article.images.each do |image|
+        unless Vision.get_image_data(image)
+          flash[:notice] = '画像が不適切です'
+          render :edit
+          return
+        end
       end
+    redirect_to article_path(@article.id)
+    flash[:notice] = "投稿内容を編集しました！"
+    else
+      render :edit
     end
 
-    flash[:notice] = "投稿内容を編集しました！"
-    redirect_to article_path(@article.id)
-
-    # if result == true
-    #   @article = Article.find(params[:id])
-    #   @article.update(article_params)
-    #   redirect_to article_path(@article.id)
-    #   flash[:notice] = "投稿内容を編集しました！"
-    # elsif result == false
-    #   flash[:notice] = '画像が不適切です'
-    #   render :edit
-    # end
   end
 
   def destroy
