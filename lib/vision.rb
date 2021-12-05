@@ -37,7 +37,7 @@ module Vision
       if (error = response_body['responses'][0]['error']).present?
         raise error['message']
       else
-        response_body['responses'][0]['safeSearchAnnotation'].value?('UNLIKELY')
+        response_body['responses'][0]['safeSearchAnnotation'].value?('VERY_UNLIKELY' || 'UNLIKELY')
       end
     end
   end
