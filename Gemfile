@@ -75,6 +75,7 @@ gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'dotenv-rails'
 gem 'fog-aws'
+gem 'refile-s3'
 
 group :production do
   gem 'mysql2'
