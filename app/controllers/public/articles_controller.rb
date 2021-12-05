@@ -50,6 +50,7 @@ helper_method :sort_coumn, :sort_direction
       @article.images.each do |image|
         unless Vision.get_image_data(image)
           flash[:notice] = '画像が不適切です'
+          @article.destroy
           render :new
           return
         end

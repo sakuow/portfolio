@@ -9,7 +9,10 @@ module Vision
       api_url = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['GOOGLE_API_KEY']}"
 
       # 画像をbase64にエンコード
-      base64_image = Base64.encode64(open("#{Rails.root}/public/uploads/#{image_file.file_id}").read)
+      backend = Refile::S3.new(access_key_id: ENV['S3_ACCESS_KEY_ID'], secret_access_key: ENV['S3_SECRET_ACCESS_KEY'], region: 'ap-northeast-1', bucket: 'portfoliomarks', prefix: 'store' )
+      image = backend.read(image_file.file_id)
+      base64_image = Base64.encode64(image)
+      # base64_image = Base64.encode64(open("#{ENV['S3_URL']}+#{image_file.file_id}").read)
 
       # APIリクエスト用のJSONパラメータ
       params = {
