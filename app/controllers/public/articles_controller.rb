@@ -49,7 +49,7 @@ helper_method :sort_coumn, :sort_direction
     if @article.save
       @article.images.each do |image|
         unless Vision.get_image_data(image)
-          flash[:notice] = '画像が不適切です'
+          flash[:alert] = '画像が不適切です'
           @article.destroy
           render :new
           return
