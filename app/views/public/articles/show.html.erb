@@ -1,10 +1,13 @@
 <div class="container textalign">
+
+  <!-- 見出し -->
   <div class="article-flex">
     <div class="article-heading">
       <h3>Show page</h3>
     </div>
   </div>
 
+  <!-- 上段/中央 投稿した画像をskipprで表示 -->
   <div class="center">
     <div class="form">
       <% @article.images.each do |images| %>
@@ -14,7 +17,10 @@
     <p class="article-right"><%= link_to "GoogleMapへ", map_path(@article.id) %></p>
   </div>
 
+  <!-- 下段/左 -->
   <div class="row article-box">
+
+    <!-- 投稿ユーザー -->
     <div class="col-md-6 article-show-border">
       <%= link_to @article.user.name, user_path(@article.user.id)  %>
       <p>
@@ -22,12 +28,15 @@
           <%= attachment_image_tag @article.user, :profile_image, :fill, 100, 100, format: 'jpeg', class:'article-profile-img' %>
         <% end %>
       </p>
+
+      <!-- フォローボタン -->
       <% unless @article.user == current_user %>
         <div class="article-button" id="follows_<%= @article.user.id %>">
           <%= render "public/relationships/button", user: @article.user %>
         </div>
       <% end %>
 
+      <!-- いいねボタン -->
       <div class="article-favorite">
         <% if @article.user == current_user %>
           <p><%= @article.favorites.count %> marks</p>
@@ -41,6 +50,7 @@
         </p>
       </div>
 
+      <!-- 投稿内容 -->
       <table class="table">
         <tr>
           <td>
@@ -64,7 +74,8 @@
         </tr>
       </table>
 
-        <% if @article.user == current_user %>
+      <!-- 編集・削除ボタン -->
+      <% if @article.user == current_user %>
         <p>
           <%= link_to "投稿編集", edit_article_path(@article.id) %>
           <span>　/　</span>
@@ -73,7 +84,9 @@
       <% end %>
     </div>
 
+    <!-- 下段/右-->
     <div class="col-md-6">
+      <!-- コメント投稿フォーム・一覧表示 -->
       <div id="comments_<%= @article.id %>">
         <%= render 'public/comments/new', comment: @comment, article: @article, comments: @article.comments %>
       </div>

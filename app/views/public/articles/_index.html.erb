@@ -1,5 +1,6 @@
 <div class="row article-template">
 
+  <!-- 投稿した画像をskipprで表示 -->
   <% articles.each do |article| %>
   <div class="col-3 article-col">
     <div class="ctn">
@@ -10,10 +11,12 @@
       </div>
     </div>
 
+    <!-- 投稿日時 -->
     <p class="text-right">
       <i class="fas fa-calendar-alt"></i>: <%= l article.created_at, format: :short %>
     </p>
 
+    <!-- いいね数・コメント数 （ログインしている場合のみリンク) -->
     <div class="text-center">
       <p>
         <% if user_signed_in? %>
@@ -32,6 +35,7 @@
       </p>
     </div>
 
+    <!-- 投稿ユーザー・投稿内容 -->
     <table class="table">
       <tr>
         <%= link_to user_path(article.user.id) do %>
@@ -53,6 +57,7 @@
       </tr>
       <tr>
         <td>
+          <!-- 縮小表示 -->
           <span class="article-tagname">
             <details open>
               <summary>タグ(クリック)</summary>

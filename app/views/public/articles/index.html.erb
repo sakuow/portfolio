@@ -1,7 +1,10 @@
+<!-- 見出し -->
 <div class="article-flex">
   <div class="article-heading">
     <h3>Popular</h3>
   </div>
+
+  <!-- タグ検索フォーム -->
   <div class="article-search">
     <%= form_tag articles_path, method: :get, class: "boards_searchForm" do %>
       <%= select_tag :tagname_id,
@@ -15,6 +18,7 @@
   </div>
 </div>
 
+<!-- 一覧表示へ -->
 <div class="container">
   <%= render 'public/articles/index', articles: @articles %>
 </div>
