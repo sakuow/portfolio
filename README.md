@@ -23,7 +23,7 @@
 
 ## 設計書
 プロジェクト概要 ： https://docs.google.com/spreadsheets/d/1xvJq416J9EPMuKS5Xk6WpCOdQbmVje93nd8ZVO2Y020/edit#gid=977420151<br />
-ER図・UIFlow ： https://app.diagrams.net/#G13rFuzD3gT_-KGI4VXUfU1F7JtQ0FIaKq
+ER図 ： https://app.diagrams.net/#G1DFAWqn5ASK-Wmud0mH-0yiOmNX8j9EUJ
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1WI8oxNfqJR6UQ3uOf3cb3N7kEjwbTj9Y5p1za5zJaW4/edit#gid=1284369452
