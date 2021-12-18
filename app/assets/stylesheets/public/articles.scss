@@ -46,10 +46,14 @@
     }
   }
 
-  div.center {
+  .center {
     height: 400px;
     width: 100%;
     margin-bottom: 50px;
+
+    .map-link-text {
+      margin: 10px;
+    }
 
     .skippr {
       width: 80%;
@@ -57,6 +61,7 @@
       position: relative;
       overflow: hidden;
       margin: 0 auto;
+      margin-bottom: 10px;
     }
 
     .aritcle-image {
@@ -66,6 +71,7 @@
   }
 
   .article-box {
+    padding-top: 30px;
 
     .article-show-border {
       border-right: 1px dotted black;

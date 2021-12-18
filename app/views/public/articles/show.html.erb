@@ -14,7 +14,14 @@
         <div class="article-image", style="background-image: url(<%= attachment_url images, :file, format: 'jpeg' %>)"></div>
       <% end %>
     </div>
-    <p class="article-right"><%= link_to "GoogleMapへ", map_path(@article.id) %></p>
+    <div class="map-link-text">
+    <span>写真の位置をGoogle Mapで見る</span><br />
+      <% @num = 1 %>
+      <% @article.images.each do |iamge| %>
+        <%= link_to "#{@num}枚目", map_path(@article.id) %>
+        <% @num += 1 %>
+      <% end %>
+    </div>
   </div>
 
   <!-- 下段/左 -->
