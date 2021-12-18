@@ -33,10 +33,11 @@ helper_method :sort_coumn, :sort_direction
   end
 
   def map
-    # @article = Article.find(params[:id])
-    # images = EXIFR::JPEG.new(@article.images)
-    # @image.latitude = images.gps.latitude
-    # @image.longitude = images.gps.longitude
+    @article = Article.find(params[:id])
+    @article.images.each do |image|
+      @lat = @article.images.latitude
+      @lng = @article.image.longitude
+    end
   end
 
   def edit
@@ -47,9 +48,13 @@ helper_method :sort_coumn, :sort_direction
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
-      @article.images.each do |image|
-        unless Vision.get_image_data(image)
-          flash[:alert] = '画像が不適切です'
+       @article.images.each do |image|
+        req = Vision.get_image_data(image)
+        if req.size == 2
+          image.latitude, image.longitude = req
+          image.save
+        else
+          flash[:alert] = req
           @article.destroy
           render :new
           return
@@ -66,7 +71,7 @@ helper_method :sort_coumn, :sort_direction
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      @article.images.each do |image|
+       @article.images.each do |image|
         unless Vision.get_image_data(image)
           flash[:notice] = '画像が不適切です'
           render :edit

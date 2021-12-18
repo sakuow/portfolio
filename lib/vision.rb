@@ -8,11 +8,11 @@ module Vision
       # APIのURL作成
       api_url = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['GOOGLE_API_KEY']}"
 
-      # 画像をbase64にエンコード
+      # s3から画像をとってくる
       backend = Refile::S3.new(access_key_id: ENV['S3_ACCESS_KEY_ID'], secret_access_key: ENV['S3_SECRET_ACCESS_KEY'], region: 'ap-northeast-1', bucket: 'portfoliomarks', prefix: 'store' )
       image = backend.read(image_file.file_id)
+      # 画像をbase64にエンコード
       base64_image = Base64.encode64(image)
-      # base64_image = Base64.encode64(open("#{ENV['S3_URL']}+#{image_file.file_id}").read)
 
       # APIリクエスト用のJSONパラメータ
       params = {
@@ -23,6 +23,10 @@ module Vision
           features: [
             {
               type: 'SAFE_SEARCH_DETECTION'
+            },
+            {
+              type: 'LANDMARK_DETECTION',
+              maxResults: 10
             }
           ]
         }]
@@ -37,10 +41,13 @@ module Vision
       response = https.request(request, params)
       response_body = JSON.parse(response.body)
       # APIレスポンス出力
+
       if (error = response_body['responses'][0]['error']).present?
         raise error['message']
+      elsif !response_body['responses'][0]['safeSearchAnnotation'].value?('VERY_UNLIKELY' || 'UNLIKELY')
+        "画像が不適切です"
       else
-        response_body['responses'][0]['safeSearchAnnotation'].value?('VERY_UNLIKELY' || 'UNLIKELY')
+        [response_body.values[0][0]["landmarkAnnotations"][0]["locations"][0]["latLng"]["latitude"], response_body.values[0][0]["landmarkAnnotations"][0]["locations"][0]["latLng"]["longitude"]]
       end
     end
   end
