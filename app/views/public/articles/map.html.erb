@@ -10,6 +10,8 @@
   </div>
 </div>
 
+<p class="map-caution-text">※ 位置情報が写真に含まれていない場合は、東京駅が表示されます。</p>
+
 <div class="article-map", id='map'></div>
 
 <style>
@@ -20,19 +22,18 @@
 </style>
 
 <script>
-let map
-let geocoder
+var map
+var geocoder
 var latix = <%= @lat %> ;
 var lngiy = <%= @lng %> ;
 
-const display = document.getElementById('display')
+var display = document.getElementById('display')
 
 function initMap(){
   geocoder = new google.maps.Geocoder()
-
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: latix, lng: lngiy},
-    zoom: 12,
+    zoom:12
   });
 
   marker = new google.maps.Marker({

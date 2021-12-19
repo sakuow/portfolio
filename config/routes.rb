@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get 'followers' => 'relationships#followers', as: 'followers'
     end
 
-    get 'article/:id/map' => 'articles#map', as: 'map'
+    get 'article/:id/map/:image_id' => 'articles#map', as: 'map'
     get 'articles/timeline' => 'articles#timeline'
     resources :articles, only: [:index, :new, :show, :edit, :create, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]

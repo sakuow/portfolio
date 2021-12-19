@@ -34,10 +34,9 @@ helper_method :sort_coumn, :sort_direction
 
   def map
     @article = Article.find(params[:id])
-    @article.images.each do |image|
-      @lat = image.latitude
-      @lng = image.longitude
-    end
+    image = @article.images.find(params[:image_id])
+    @lat = image.latitude || 35.6809591
+    @lng = image.longitude || 139.7673068
   end
 
   def edit
@@ -71,15 +70,20 @@ helper_method :sort_coumn, :sort_direction
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-       @article.images.each do |image|
-        unless Vision.get_image_data(image)
-          flash[:notice] = '画像が不適切です'
-          render :edit
+      @article.images.each do |image|
+        req = Vision.get_image_data(image)
+        if req.size == 2
+          image.latitude, image.longitude = req
+          image.save
+        else
+          flash[:alert] = req
+          @article.destroy
+          render :new
           return
         end
       end
-    redirect_to article_path(@article.id)
-    flash[:notice] = "投稿内容を編集しました！"
+      redirect_to article_path(@article.id)
+      flash[:notice] = "投稿内容を編集しました！"
     else
       render :edit
     end
