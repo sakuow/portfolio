@@ -17,7 +17,7 @@
     <div class="map-link-text">
     <span>写真の位置をGoogle Mapで見る</span><br />
       <% @article.images.each.with_index(1) do |image,index| %>
-        <%= link_to "#{index}枚目", map_path(@article.id,image.id) %>
+        <%= link_to "#{index}枚目 ", map_path(@article.id,image.id) %>
       <% end %>
     </div>
   </div>
