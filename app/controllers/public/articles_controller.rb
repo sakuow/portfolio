@@ -35,8 +35,8 @@ helper_method :sort_coumn, :sort_direction
   def map
     @article = Article.find(params[:id])
     @article.images.each do |image|
-      @lat = @article.images.latitude
-      @lng = @article.image.longitude
+      @lat = image.latitude
+      @lng = image.longitude
     end
   end
 

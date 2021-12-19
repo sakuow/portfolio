@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_11_27_020702) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.integer "latitude"
-    t.integer "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "article_id"

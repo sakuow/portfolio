@@ -41,7 +41,6 @@ module Vision
       response = https.request(request, params)
       response_body = JSON.parse(response.body)
       # APIレスポンス出力
-
       if (error = response_body['responses'][0]['error']).present?
         raise error['message']
       elsif !response_body['responses'][0]['safeSearchAnnotation'].value?('VERY_UNLIKELY' || 'UNLIKELY')
