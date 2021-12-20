@@ -5,13 +5,16 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # ユーザーのいいね一覧
   def favorites
+    # Favoriteテーブル内のurlから取得したuser_idの投稿を配列で取り出しfavorite、それをもとにArticleテーブルから該当する投稿を取り出す。
+    @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:article_id)
     article = Article.find(favorites)
     @articles = Kaminari.paginate_array(article).page(params[:page])
-    @user = User.find(params[:id])
   end
 
+  # ユーザーの投稿一覧
   def myindex
     @user = User.find(params[:id])
     kaminari = @user.articles

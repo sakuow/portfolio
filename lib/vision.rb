@@ -43,7 +43,7 @@ module Vision
       # APIレスポンス出力
       if (error = response_body['responses'][0]['error']).present?
         raise error['message']
-      elsif !response_body['responses'][0]['safeSearchAnnotation'].value?('VERY_UNLIKELY' || 'UNLIKELY') 
+      elsif !response_body['responses'][0]['safeSearchAnnotation'].value?('VERY_UNLIKELY' || 'UNLIKELY')
         "画像が不適切です"
       elsif response_body.values[0][0]["landmarkAnnotations"].nil?
           [nil,nil]

@@ -1,4 +1,6 @@
 class Public::CommentsController < ApplicationController
+
+  # 非同期化
   def create
     @article = Article.find(params[:article_id])
     comment = Comment.new(comment_params)
@@ -8,6 +10,7 @@ class Public::CommentsController < ApplicationController
     @new_comment = Comment.new
   end
 
+  # 非同期化
   def destroy
     @article = Article.find(params[:article_id])
     comment = @article.comments.find(params[:id])
