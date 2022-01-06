@@ -12,7 +12,6 @@ helper_method :sort_coumn, :sort_direction
     @articles = Kaminari.paginate_array(timeline).page(params[:page])
   end
 
-  # 左外部結合により、Favoriteテーブルを参照して、
   def index
     sql = %|
       LEFT OUTER JOIN (
